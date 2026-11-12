@@ -281,7 +281,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.12);padding-block:18px;font-
 
 .stars{display:inline-flex;gap:2px}.stars svg{width:18px;height:18px;fill:#E8A91B}.stars svg.off{fill:var(--line)}
 .revsum{display:flex;gap:10px;align-items:center;justify-content:center;margin:-8px 0 26px;color:var(--muted)}.revsum b{color:var(--ink);font-size:1.1rem}
-.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.revwrap{position:relative}.revs{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding:4px 2px 8px}.revs::-webkit-scrollbar{display:none}.revs>.rev{flex:0 0 calc((100% - 60px)/4);scroll-snap-align:start;min-width:0}@media(max-width:1100px){.revs>.rev{flex-basis:calc((100% - 20px)/2)}}@media(max-width:640px){.revs>.rev{flex-basis:88%}}.revnav{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line,#ddd);background:#fff;color:var(--ink,#222);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;padding:0 0 3px}.revnav.prev{left:-14px}.revnav.next{right:-14px}.revnav:disabled{opacity:.35;cursor:default}.revnav:focus-visible{outline:2px solid currentColor;outline-offset:2px}html[dir=rtl] .revnav.prev{left:auto;right:-14px}html[dir=rtl] .revnav.next{right:auto;left:-14px}html[dir=rtl] .revnav{transform:translateY(-50%) scaleX(-1)}@media(max-width:640px){.revnav{width:38px;height:38px}.revnav.prev{left:-6px}.revnav.next{right:-6px}html[dir=rtl] .revnav.prev{right:-6px}html[dir=rtl] .revnav.next{left:-6px}}
 .rev{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:14px;align-content:start;min-width:0}
 .revs{align-items:start}.rev blockquote{margin:0;color:var(--ink);white-space:pre-line}.rev blockquote.clamp:not(.open){display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}.revlink{margin-top:6px;color:var(--accent);font-weight:600;text-decoration:underline;justify-self:start}.revmore{all:unset;cursor:pointer;color:var(--accent);font-weight:600;font-size:.9rem;justify-self:start;text-decoration:underline}.revmore:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.rev figcaption{display:grid;font-size:.9rem;color:var(--muted)}.rev figcaption b{color:var(--ink)}
 
@@ -2287,7 +2287,7 @@ html[dir=rtl] #f-phone{text-align:right}
     en:{home:'Home',services:'Services',allservices:'All services',gallery:'Gallery',promotions:'Promotions',aboutus:'About us',aboutbloom:'About Bloom',specialists:'Our Specialists',directors:'Our Directors',contact:'Contact us',ourservices:'Our Services',
       phone:'Phone',hours:'Hours',email:'Email',address:'Address',openhours:'Opening hours',daily:'Daily',closed:'Closed',am:'AM',pm:'PM',
       yourname:'Your name',treatment:'Treatment',general:'General enquiry',specialist:'Specialist',nopref:'No preference',when:'Preferred day or time',whenph:'e.g. weekday mornings',anything:'Anything else',prepare:'Prepare my message',copy:'Copy message',
-      formnote:'This form does not send anything. Copy the message and send it to the clinic by phone or email.',copied:'Copied',presscopy:'Press copy on your device',readmore:'Read more',readless:'Show less',viewongoogle:'View on Google ↗',
+      formnote:'This form does not send anything. Copy the message and send it to the clinic by phone or email.',copied:'Copied',presscopy:'Press copy on your device',readmore:'Read more',prevrev:'Previous reviews',nextrev:'Next reviews',readless:'Show less',viewongoogle:'View on Google ↗',
       m_hello:'Hello Bloom Clinic, I would like to book a consultation',m_about:' about ',m_name:'Name: ',m_phone:'Phone: ',m_spec:'Specialist: ',m_time:'Preferred time: ',m_notes:'Notes: ',
       treatments:' treatments',explore:'Explore service →',from:' from ',greviews:' Google reviews',greview:'Google review',featured:'Featured',offer:'Offer',
       book:'Book an appointment',viewdetails:'View details →',enquire:'Enquire →',enquire2:'Enquire',selectnote:'Select a treatment to start an enquiry. Suitability and results are discussed at your consultation.',
@@ -2299,7 +2299,7 @@ html[dir=rtl] #f-phone{text-align:right}
     ar:{home:'الرئيسية',services:'الخدمات',allservices:'جميع الخدمات',gallery:'المعرض',promotions:'العروض',aboutus:'من نحن',aboutbloom:'عن بلوم',specialists:'أخصائيونا',directors:'المديرون',contact:'اتصل بنا',ourservices:'خدماتنا',
       phone:'الهاتف',hours:'ساعات العمل',email:'البريد الإلكتروني',address:'العنوان',openhours:'ساعات العمل',daily:'يوميًا',closed:'مغلق',am:'ص',pm:'م',
       yourname:'الاسم',treatment:'العلاج',general:'استفسار عام',specialist:'الأخصائي',nopref:'بدون تفضيل',when:'اليوم أو الوقت المفضل',whenph:'مثال: صباح أيام الأسبوع',anything:'أي ملاحظات أخرى',prepare:'جهّز رسالتي',copy:'انسخ الرسالة',
-      formnote:'هذا النموذج لا يرسل شيئًا. انسخ الرسالة وأرسلها إلى العيادة عبر الهاتف أو البريد الإلكتروني.',copied:'تم النسخ',presscopy:'استخدم أمر النسخ في جهازك',readmore:'اقرأ المزيد',readless:'عرض أقل',viewongoogle:'عرض على Google ↗',
+      formnote:'هذا النموذج لا يرسل شيئًا. انسخ الرسالة وأرسلها إلى العيادة عبر الهاتف أو البريد الإلكتروني.',copied:'تم النسخ',presscopy:'استخدم أمر النسخ في جهازك',prevrev:'التقييمات السابقة',nextrev:'التقييمات التالية',readmore:'اقرأ المزيد',readless:'عرض أقل',viewongoogle:'عرض على Google ↗',
       m_hello:'مرحبًا عيادة بلوم، أودّ حجز استشارة',m_about:' بخصوص ',m_name:'الاسم: ',m_phone:'الهاتف: ',m_spec:'الأخصائي: ',m_time:'الوقت المفضل: ',m_notes:'ملاحظات: ',
       treatments:' علاجًا',explore:'استكشف الخدمة ←',from:' من ',greviews:' تقييم على Google',greview:'تقييم على Google',featured:'مميّز',offer:'عرض',
       book:'احجز موعدًا',viewdetails:'عرض التفاصيل ←',enquire:'استفسر ←',enquire2:'استفسر',selectnote:'اختر علاجًا لبدء الاستفسار. تُناقَش مدى الملاءمة والنتائج خلال استشارتك.',
@@ -2463,13 +2463,13 @@ html[dir=rtl] #f-phone{text-align:right}
   function gUrl(u){u=String(u||'').trim();return /^https:\/\/(maps\.app\.goo\.gl|goo\.gl\/maps|(www\.)?google\.[a-z.]+\/|g\.co\/|g\.page\/|search\.google\.com\/)/i.test(u)?u:''}
   function stars(n){var s='';for(var i=0;i<5;i++)s+='<svg viewBox="0 0 20 20" aria-hidden="true" class="'+(i<n?'on':'off')+'"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg>';return '<span class="stars" role="img" aria-label="'+n+' out of 5 stars">'+s+'</span>'}
   function reviews(){
-    var R=C.reviews||{},it=(R.items||[]).filter(function(r){return r.text&&r.name&&!r.hidden}).slice(0,6);
+    var R=C.reviews||{},it=(R.items||[]).filter(function(r){return r.text&&r.name&&!r.hidden}).slice(0,20);
     var wsrc=widgetSrc(R.widgetCode);
     if(wsrc)return '<section style="padding-top:0"><div class="wrap">'+head(R.eyebrow||'Patient reviews',R.title||'What our patients say')+'<div id="ti-widget" data-src="'+esc(wsrc)+'" style="min-height:120px"></div></div></section>';
     if(!it.length)return '';
     return '<section style="padding-top:0"><div class="wrap">'+head(R.eyebrow||'Patient reviews',R.title||'What our patients say')+
       ((R.rating||R.count)?'<p class="revsum">'+stars(5)+'<span><b>'+esc(R.rating)+'</b>'+(R.count?T('from')+esc(R.count)+T('greviews'):'')+'</span></p>':'')+
-      '<div class="revs">'+it.map(function(r){return '<figure class="rev">'+stars(r.stars||5)+(r.text.length>230?'<blockquote class="clamp">'+esc(r.text)+'</blockquote><button type="button" class="revmore" data-rev aria-expanded="false">'+esc(T('readmore'))+'</button>':'<blockquote>'+esc(r.text)+'</blockquote>')+'<figcaption><b>'+esc(r.name)+'</b><span>'+esc(r.date||'')+(r.date?' · ':'')+esc(T('greview'))+'</span>'+(gUrl(r.url)?'<a class="revlink" href="'+esc(gUrl(r.url))+'" target="_blank" rel="noopener noreferrer">'+esc(T('viewongoogle'))+'</a>':'')+'</figcaption></figure>'}).join('')+'</div>'+
+      '<div class="revwrap"><button type="button" class="revnav prev" data-revnav="-1" aria-label="'+esc(T('prevrev'))+'">&#8249;</button><div class="revs" id="revtrack" role="region" aria-roledescription="carousel" aria-label="'+esc(T('greview'))+'" tabindex="0">'+it.map(function(r){return '<figure class="rev">'+stars(r.stars||5)+(r.text.length>230?'<blockquote class="clamp">'+esc(r.text)+'</blockquote><button type="button" class="revmore" data-rev aria-expanded="false">'+esc(T('readmore'))+'</button>':'<blockquote>'+esc(r.text)+'</blockquote>')+'<figcaption><b>'+esc(r.name)+'</b><span>'+esc(r.date||'')+(r.date?' · ':'')+esc(T('greview'))+'</span>'+(gUrl(r.url)?'<a class="revlink" href="'+esc(gUrl(r.url))+'" target="_blank" rel="noopener noreferrer">'+esc(T('viewongoogle'))+'</a>':'')+'</figcaption></figure>'}).join('')+'</div><button type="button" class="revnav next" data-revnav="1" aria-label="'+esc(T('nextrev'))+'">&#8250;</button></div>'+
       (R.link?'<div class="row" style="justify-content:center;margin-top:30px"><a class="btn ghost" href="'+esc(safeUrl(R.link))+'" target="_blank" rel="noopener">'+esc(R.linkText||'Read more reviews on Google')+'</a></div>':'')+'</div></section>';
   }
 
@@ -2594,7 +2594,33 @@ html[dir=rtl] #f-phone{text-align:right}
     document.getElementById('base').textContent=S.copyright;
   }
 
+  var revTimer=null;
+  function initRev(){
+    if(revTimer){clearInterval(revTimer);revTimer=null}
+    var tr=document.getElementById('revtrack');if(!tr)return;
+    var rtl=document.documentElement.dir==='rtl',paused=false,resumeT=null;
+    function step(){var c=tr.querySelector('.rev');return c?c.offsetWidth+20:300}
+    function pos(){return Math.abs(tr.scrollLeft)}
+    function max(){return tr.scrollWidth-tr.clientWidth}
+    function upd(){var p=pos(),m=max(),pv=document.querySelector('.revnav.prev'),nx=document.querySelector('.revnav.next');
+      if(pv)pv.disabled=p<=2;if(nx)nx.disabled=p>=m-2}
+    function go(dir){ // dir: +1 forward (reading direction), -1 back
+      var p=pos(),m=max(),t=p+dir*step();
+      if(dir>0&&p>=m-2)t=0;
+      t=Math.max(0,Math.min(m,t));
+      tr.scrollTo({left:rtl?-t:t,behavior:'smooth'})}
+    tr._go=go;
+    tr.addEventListener('scroll',upd,{passive:true});upd();
+    window.addEventListener('resize',upd);
+    function pause(){paused=true;clearTimeout(resumeT)}
+    function resume(){clearTimeout(resumeT);resumeT=setTimeout(function(){paused=false},2000)}
+    var wrap=tr.parentNode;
+    ['mouseenter','focusin','touchstart'].forEach(function(ev){wrap.addEventListener(ev,pause,{passive:true})});
+    ['mouseleave','focusout','touchend'].forEach(function(ev){wrap.addEventListener(ev,resume,{passive:true})});
+    if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    revTimer=setInterval(function(){if(!paused&&!document.hidden&&document.getElementById('revtrack')===tr)go(1)},4000)}
   function route(){
+    if(revTimer){clearInterval(revTimer);revTimer=null}
     if(!C)return;
     var h=(location.hash||'#home').slice(1),view,cur=h,tr=null;
     var en=false; /* pages not yet translated are shown in English, left to right */
@@ -2615,6 +2641,7 @@ html[dir=rtl] #f-phone{text-align:right}
     window.scrollTo(0,0);
     var tw=document.getElementById('ti-widget');
     if(tw&&tw.getAttribute('data-src')){var sc=document.createElement('script');sc.src=tw.getAttribute('data-src');sc.async=true;sc.defer=true;tw.appendChild(sc)}
+    initRev();
     var f=document.getElementById('enq');
     if(f){
       f.addEventListener('submit',function(e){
@@ -2635,6 +2662,8 @@ html[dir=rtl] #f-phone{text-align:right}
   }
 
   document.addEventListener('click',function(e){
+    var rn=e.target.closest('[data-revnav]');
+    if(rn){var trk=document.getElementById('revtrack');if(trk&&trk._go)trk._go(+rn.getAttribute('data-revnav'));return}
     var rv=e.target.closest('[data-rev]');
     if(rv){var bq=rv.previousElementSibling,open=bq.classList.toggle('open');rv.setAttribute('aria-expanded',open);rv.textContent=T(open?'readless':'readmore');return}
     var t=e.target.closest('[data-treat]');
