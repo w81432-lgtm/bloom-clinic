@@ -283,7 +283,7 @@ footer .base{border-top:1px solid rgba(255,255,255,.12);padding-block:18px;font-
 .revsum{display:flex;gap:10px;align-items:center;justify-content:center;margin:-8px 0 26px;color:var(--muted)}.revsum b{color:var(--ink);font-size:1.1rem}
 .revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
 .rev{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:14px;align-content:start;min-width:0}
-.rev blockquote{margin:0;color:var(--ink)}.rev figcaption{display:grid;font-size:.9rem;color:var(--muted)}.rev figcaption b{color:var(--ink)}
+.revs{align-items:start}.rev blockquote{margin:0;color:var(--ink);white-space:pre-line}.rev blockquote.clamp:not(.open){display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}.revmore{all:unset;cursor:pointer;color:var(--accent);font-weight:600;font-size:.9rem;justify-self:start;text-decoration:underline}.revmore:focus-visible{outline:3px solid var(--accent);outline-offset:2px}.rev figcaption{display:grid;font-size:.9rem;color:var(--muted)}.rev figcaption b{color:var(--ink)}
 
 .icon-btn.lang{width:auto;padding:0 14px;font-weight:600;font-size:.92rem;white-space:nowrap}
 html[lang=ar]{--font-display:'Cairo','Segoe UI',Tahoma,sans-serif;--font-body:'Cairo','Segoe UI',Tahoma,sans-serif}
@@ -1281,7 +1281,43 @@ html[dir=rtl] #f-phone{text-align:right}
     "count": "",
     "link": "",
     "linkText": "Read more reviews on Google",
-    "items": [],
+    "items": [
+      {
+        "name": "wassim bark",
+        "stars": 5,
+        "date": "2 months ago",
+        "text": "I had my SMP treatment with Ms. Kanta at Bloom Aesthetic and Laser Clinic, and I would like to express my sincere appreciation for the exceptional experience.\n\nA very special thank you to Ms. Kanta for her professionalism, patience, attention to detail, and dedication throughout the entire treatment. She took her time with every step, and the final result was truly excellent and exactly what I was hoping for.\n\nBased on my personal experience, I highly recommend Ms. Kanta to anyone considering SMP. You can trust her to work with great care and professionalism to achieve a natural and beautiful result.\n\nI would also like to thank the entire Bloom Clinic team and management for their warm welcome, hospitality, and excellent service throughout my visits.\n\nThank you, Ms. Kanta and Bloom Clinic, for such a wonderful experience. Highly recommended",
+        "hidden": false
+      },
+      {
+        "name": "fouad chatila",
+        "stars": 5,
+        "date": "2 months ago",
+        "text": "Amazing Laser Experience\n\nI had a laser treatment with Anas at Bloom Clinic, and honestly, he is one of the best laser specialists I've ever experienced. He is extremely professional, precise, and knows exactly what he's doing. I noticed a visible difference from the very first session, which really impressed me.\n\nHighly recommended!",
+        "hidden": false
+      },
+      {
+        "name": "Rohit Serai",
+        "stars": 5,
+        "date": "8 months ago",
+        "text": "I had a wonderful experience with Dr.Smita. From the very first consultation, she made me feel comfortable and listened carefully to my concerns. The treatment plan was clearly explained, and I saw noticeable improvement in my skin within a short time. I truly appreciate the care and professionalism. She's the best. Highly recommended!",
+        "hidden": false
+      },
+      {
+        "name": "Abu Karam",
+        "stars": 5,
+        "date": "6 months ago",
+        "text": "I had a great experience in the clinic with the laser specialist Anas. He was very professional and responsive. Thank you all",
+        "hidden": false
+      },
+      {
+        "name": "Zaeed",
+        "stars": 5,
+        "date": "6 months ago",
+        "text": "I've been coming to this clinic for more than 6 years. Mr Anas is the only person i can trust with completing the laser procedure. Best prices and best packages. Highly recommend!",
+        "hidden": false
+      }
+    ],
     "widgetCode": ""
   },
   "team": [
@@ -2246,7 +2282,7 @@ html[dir=rtl] #f-phone{text-align:right}
     en:{home:'Home',services:'Services',allservices:'All services',gallery:'Gallery',promotions:'Promotions',aboutus:'About us',aboutbloom:'About Bloom',specialists:'Our Specialists',directors:'Our Directors',contact:'Contact us',ourservices:'Our Services',
       phone:'Phone',hours:'Hours',email:'Email',address:'Address',openhours:'Opening hours',daily:'Daily',closed:'Closed',am:'AM',pm:'PM',
       yourname:'Your name',treatment:'Treatment',general:'General enquiry',specialist:'Specialist',nopref:'No preference',when:'Preferred day or time',whenph:'e.g. weekday mornings',anything:'Anything else',prepare:'Prepare my message',copy:'Copy message',
-      formnote:'This form does not send anything. Copy the message and send it to the clinic by phone or email.',copied:'Copied',presscopy:'Press copy on your device',
+      formnote:'This form does not send anything. Copy the message and send it to the clinic by phone or email.',copied:'Copied',presscopy:'Press copy on your device',readmore:'Read more',readless:'Show less',
       m_hello:'Hello Bloom Clinic, I would like to book a consultation',m_about:' about ',m_name:'Name: ',m_phone:'Phone: ',m_spec:'Specialist: ',m_time:'Preferred time: ',m_notes:'Notes: ',
       treatments:' treatments',explore:'Explore service →',from:' from ',greviews:' Google reviews',greview:'Google review',featured:'Featured',offer:'Offer',
       book:'Book an appointment',viewdetails:'View details →',enquire:'Enquire →',enquire2:'Enquire',selectnote:'Select a treatment to start an enquiry. Suitability and results are discussed at your consultation.',
@@ -2258,7 +2294,7 @@ html[dir=rtl] #f-phone{text-align:right}
     ar:{home:'الرئيسية',services:'الخدمات',allservices:'جميع الخدمات',gallery:'المعرض',promotions:'العروض',aboutus:'من نحن',aboutbloom:'عن بلوم',specialists:'أخصائيونا',directors:'المديرون',contact:'اتصل بنا',ourservices:'خدماتنا',
       phone:'الهاتف',hours:'ساعات العمل',email:'البريد الإلكتروني',address:'العنوان',openhours:'ساعات العمل',daily:'يوميًا',closed:'مغلق',am:'ص',pm:'م',
       yourname:'الاسم',treatment:'العلاج',general:'استفسار عام',specialist:'الأخصائي',nopref:'بدون تفضيل',when:'اليوم أو الوقت المفضل',whenph:'مثال: صباح أيام الأسبوع',anything:'أي ملاحظات أخرى',prepare:'جهّز رسالتي',copy:'انسخ الرسالة',
-      formnote:'هذا النموذج لا يرسل شيئًا. انسخ الرسالة وأرسلها إلى العيادة عبر الهاتف أو البريد الإلكتروني.',copied:'تم النسخ',presscopy:'استخدم أمر النسخ في جهازك',
+      formnote:'هذا النموذج لا يرسل شيئًا. انسخ الرسالة وأرسلها إلى العيادة عبر الهاتف أو البريد الإلكتروني.',copied:'تم النسخ',presscopy:'استخدم أمر النسخ في جهازك',readmore:'اقرأ المزيد',readless:'عرض أقل',
       m_hello:'مرحبًا عيادة بلوم، أودّ حجز استشارة',m_about:' بخصوص ',m_name:'الاسم: ',m_phone:'الهاتف: ',m_spec:'الأخصائي: ',m_time:'الوقت المفضل: ',m_notes:'ملاحظات: ',
       treatments:' علاجًا',explore:'استكشف الخدمة ←',from:' من ',greviews:' تقييم على Google',greview:'تقييم على Google',featured:'مميّز',offer:'عرض',
       book:'احجز موعدًا',viewdetails:'عرض التفاصيل ←',enquire:'استفسر ←',enquire2:'استفسر',selectnote:'اختر علاجًا لبدء الاستفسار. تُناقَش مدى الملاءمة والنتائج خلال استشارتك.',
@@ -2426,7 +2462,7 @@ html[dir=rtl] #f-phone{text-align:right}
     if(!it.length)return '';
     return '<section style="padding-top:0"><div class="wrap">'+head(R.eyebrow||'Patient reviews',R.title||'What our patients say')+
       ((R.rating||R.count)?'<p class="revsum">'+stars(5)+'<span><b>'+esc(R.rating)+'</b>'+(R.count?T('from')+esc(R.count)+T('greviews'):'')+'</span></p>':'')+
-      '<div class="revs">'+it.map(function(r){return '<figure class="rev">'+stars(r.stars||5)+'<blockquote>'+esc(r.text)+'</blockquote><figcaption><b>'+esc(r.name)+'</b><span>'+esc(r.date||'')+(r.date?' · ':'')+esc(T('greview'))+'</span></figcaption></figure>'}).join('')+'</div>'+
+      '<div class="revs">'+it.map(function(r){return '<figure class="rev">'+stars(r.stars||5)+(r.text.length>230?'<blockquote class="clamp">'+esc(r.text)+'</blockquote><button type="button" class="revmore" data-rev aria-expanded="false">'+esc(T('readmore'))+'</button>':'<blockquote>'+esc(r.text)+'</blockquote>')+'<figcaption><b>'+esc(r.name)+'</b><span>'+esc(r.date||'')+(r.date?' · ':'')+esc(T('greview'))+'</span></figcaption></figure>'}).join('')+'</div>'+
       (R.link?'<div class="row" style="justify-content:center;margin-top:30px"><a class="btn ghost" href="'+esc(safeUrl(R.link))+'" target="_blank" rel="noopener">'+esc(R.linkText||'Read more reviews on Google')+'</a></div>':'')+'</div></section>';
   }
 
@@ -2592,6 +2628,8 @@ html[dir=rtl] #f-phone{text-align:right}
   }
 
   document.addEventListener('click',function(e){
+    var rv=e.target.closest('[data-rev]');
+    if(rv){var bq=rv.previousElementSibling,open=bq.classList.toggle('open');rv.setAttribute('aria-expanded',open);rv.textContent=T(open?'readless':'readmore');return}
     var t=e.target.closest('[data-treat]');
     if(t){selected=t.getAttribute('data-treat');if(location.hash==='#contact')route();else location.hash='contact';return}
     var dd=e.target.closest('[data-dd] > button');
