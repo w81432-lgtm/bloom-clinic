@@ -1,0 +1,7 @@
+admin/data/auth.php
+admin/data/attempts.php
+admin/data/backups/site-*.json
+uploads/*
+!uploads/.htaccess
+!uploads/index.html
+*.tmp

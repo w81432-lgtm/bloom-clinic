@@ -1,0 +1,58 @@
+BLOOM CLINIC WEBSITE + ADMIN PANEL
+==================================
+
+WHAT IS IN THIS FOLDER
+  index.html        the website
+  images/           site photos and logos
+  content/site.json ALL the website's English text and settings (the admin edits this)
+  content/site.ar.json the Arabic text. Anything left empty there shows in English.
+                    (Editing Arabic from the admin is not built yet.)
+  uploads/          photos you upload from the admin
+  admin/            the admin panel (open yoursite.com/admin/)
+
+UPLOAD (cPanel)
+  1. Log in to cPanel > File Manager > open public_html (or your domain's folder).
+  2. Upload bloom-clinic-website-with-admin.zip and click Extract. Make sure
+     index.html ends up directly inside public_html (move the files up if they
+     land in a sub-folder).
+  3. Open https://yourdomain.com/admin/check.php. Every line should say YES.
+     - "NO" for a writable folder: in File Manager, right-click the folder >
+       Change Permissions > set 755 (or 775), tick the folder only.
+     - "NO" for https: in cPanel open "SSL/TLS Status" and run AutoSSL for the
+       domain. Always use the admin over https so your password is protected.
+  4. Delete admin/check.php.
+
+SIGN IN
+  Open https://yourdomain.com/admin/
+  Username: admin
+  Temporary password: given to you in the chat. You are asked to choose your
+  own password (10+ characters) the first time you sign in.
+
+HOW EDITING WORKS
+  - Pick a section on the left, change the text or photos, press "Save changes".
+    The website updates immediately.
+  - Photos: "Choose or upload" in any photo field. Uploads are resized and
+    cleaned automatically (JPG, PNG, WebP, GIF up to 8 MB).
+  - Every save keeps a backup (latest 40). Backups > Restore brings back an
+    earlier version.
+  - Overview shows what still needs finishing (specialist roles and photos,
+    director biography, reviews, before and after photos...).
+
+ADDING GOOGLE REVIEWS
+  Admin > Google reviews. Add the average rating, review count, the link to
+  your Google reviews page, then add each 5-star review (name, date, text) as
+  written by the patient. The section appears on the home page once at least
+  one review is added. Reviews are copied by hand: Google does not allow the
+  site to pull them in automatically without a paid connection.
+
+SECURITY NOTES
+  - Passwords are stored hashed. Six wrong attempts lock that visitor out for
+    15 minutes. Sessions end after 2 hours idle.
+  - Saving needs a one-time token (protects against forged requests).
+  - Uploads are checked, re-encoded as plain images and can never run code.
+  - admin/data/ is blocked from the web by .htaccess (Apache, standard on cPanel).
+  - Keep a copy of the whole folder (cPanel Backup) now and then.
+
+IF YOU FORGET THE PASSWORD
+  In File Manager, replace admin/data/auth.php with the original from this
+  package (it restores the temporary password) and sign in again.

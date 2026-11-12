@@ -1,0 +1,2063 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bloom Aesthetic and Laser Clinic</title>
+<meta name="description" content="Bloom Clinic is an aesthetic and laser clinic. Explore treatment information and request a consultation.">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&family=Cairo:wght@400;500;600;700&display=swap">
+<style>
+/* Layout follows the Mednix dentist theme: utility bar, pill nav, hero with arched photo, service cards, ticker, about, appointment, team, treatment cards, offers, footer. Palette comes from the Bloom logo (aqua + slate grey). */
+:root{
+  --bg:#F6FAFA; --surface:#FFFFFF; --ink:#2E3436; --muted:#5E6366; --line:#D6E3E3;
+  --accent:#137A76; --btn:#5EC0BB; --btn-ink:#10302E; --tint:#E2F2F1; --deep:#1D3E3D; --deep-ink:#EAF5F4; --deep-muted:#A5C7C4;
+  --logo-grey:#6F7072; --glow:rgba(94,192,187,.35);
+  --font-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --font-body:'Figtree','Segoe UI',system-ui,sans-serif;
+  --r:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1819; --surface:#162324; --ink:#E7F0F0; --muted:#9AB0B0; --line:#294040;
+  --accent:#5EC0BB; --btn:#5EC0BB; --btn-ink:#0C2523; --tint:#1B2E2F; --deep:#0A1213; --deep-ink:#E7F0F0; --deep-muted:#8FAAA9; --logo-grey:#B9C3C4; --glow:rgba(94,192,187,.22); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1819; --surface:#162324; --ink:#E7F0F0; --muted:#9AB0B0; --line:#294040;
+  --accent:#5EC0BB; --btn:#5EC0BB; --btn-ink:#0C2523; --tint:#1B2E2F; --deep:#0A1213; --deep-ink:#E7F0F0; --deep-muted:#8FAAA9; --logo-grey:#B9C3C4; --glow:rgba(94,192,187,.22); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--deep)}
+h1,h2,h3{font-family:var(--font-display);line-height:1.08;letter-spacing:-.018em;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.3rem,6vw,4.2rem);font-weight:700}
+h2{font-size:clamp(1.7rem,3.8vw,2.6rem);font-weight:700}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow img{width:18px;height:18px}
+.lead{font-size:1.12rem;color:var(--muted);max-width:58ch}
+
+/* top bar + header */
+.topbar{background:var(--deep);color:var(--deep-muted);font-size:.86rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:8px}
+.topbar span{display:inline-flex;gap:6px;align-items:center}
+.topbar b{color:var(--deep-ink);font-weight:600}
+.topbar a{color:var(--deep-ink);text-decoration:none}
+.topbar a:hover{text-decoration:underline}
+@media (max-width:700px){.topbar .hide-s{display:none}}
+.site-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;text-decoration:none;background:#FFFFFF;border-radius:10px;padding:6px 10px;flex:none}
+.brand img{display:block;height:auto}
+.brand .lg-h{width:130px;display:block}
+.brand .lg-s{width:80px;display:none}
+.bar{gap:20px}
+.nav{display:flex;align-items:center;gap:2px}
+.nav>li{list-style:none;position:relative}
+.nav,.sub{margin:0;padding:0}
+.nav a,.nav button.top{white-space:nowrap;font:inherit;font-size:.95rem;font-weight:500;color:var(--ink);background:none;border:0;padding:10px 12px;border-radius:999px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.nav a:hover,.nav button.top:hover,.nav .active>a,.nav .active>button.top{background:var(--tint)}
+.nav .cta{background:var(--btn);color:var(--btn-ink);margin-left:6px;font-weight:600}
+.nav .cta:hover{background:var(--btn);filter:brightness(1.06)}
+.caret{width:10px;height:10px}
+.sub{display:none;position:absolute;top:100%;left:0;min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 14px 34px rgba(0,0,0,.14)}
+.sub li{list-style:none}
+.sub a{display:block;border-radius:10px;width:100%}
+li.open>.sub{display:block}
+.tools{display:flex;gap:8px;align-items:center}
+.icon-btn{width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.icon-btn svg{width:18px;height:18px}
+.burger{display:none}
+@media (max-width:1180px){
+  .burger{display:grid}
+  .brand .lg-h{display:none}
+  .brand .lg-s{display:block}
+  .bar{gap:16px}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:8px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));max-height:calc(100dvh - 120px);overflow-y:auto}
+  .menu-open .nav{display:flex}
+  .nav a,.nav button.top{width:100%;justify-content:space-between;border-radius:10px;padding:12px}
+  .sub{display:block;position:static;box-shadow:none;border:0;padding:0 0 4px 12px;min-width:0}
+  .nav .caret{display:none}
+  .nav .cta{margin:8px 0 0;justify-content:center}
+}
+
+.btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-weight:600;font-size:.98rem;padding:14px 24px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--btn);color:var(--btn-ink)}
+.btn.primary:hover{filter:brightness(1.06)}
+.btn.ghost{border-color:var(--ink);color:var(--ink);background:none}
+.btn.ghost:hover{background:var(--tint)}
+.btn.light{background:var(--deep-ink);color:var(--deep)}
+.btn.outline-light{border-color:var(--deep-muted);color:var(--deep-ink)}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.more{font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;gap:6px}
+.more:hover{text-decoration:underline}
+
+/* photo slots */
+.ph{position:relative;overflow:hidden;border-radius:var(--r);background:linear-gradient(150deg,var(--tint),var(--surface) 80%);display:grid;place-items:center;max-width:100%;width:100%}
+.ph::before{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 68%)}
+.ph svg{position:relative;width:44%;max-width:170px;color:var(--accent);stroke:currentColor;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phtag{position:absolute;left:12px;bottom:10px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface);padding:3px 9px;border-radius:999px;border:1px solid var(--line)}
+.arch{border-radius:999px 999px var(--r) var(--r)}
+
+section{padding-block:clamp(52px,8vw,92px)}
+.sec-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;margin-bottom:38px}
+.sec-head p{color:var(--muted);max-width:54ch}
+.sec-head.left{align-items:flex-start;text-align:left}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,76px) clamp(48px,7vw,88px);background:linear-gradient(180deg,var(--tint),var(--bg))}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,72px);align-items:center}
+.hero-grid>*{min-width:0}
+.hero h1{margin:16px 0 20px}
+.hero .row{margin-top:30px}
+.hero-pic{position:relative;max-width:460px;margin-inline:auto;width:100%}
+.float{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:12px 16px;box-shadow:0 12px 30px rgba(0,0,0,.1);display:flex;flex-direction:column;line-height:1.2}
+.float b{font-family:var(--font-display);font-size:1.5rem;font-variant-numeric:tabular-nums}
+.float span{font-size:.8rem;color:var(--muted)}
+.float.a{left:-14px;bottom:18%}
+.float.b{right:-8px;top:12%}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.hero-pic{max-width:340px}.float.a{left:0}.float.b{right:0}}
+
+/* service cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 12px 22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;min-width:0}
+.card:hover{border-color:var(--accent)}
+.card .ph{border-radius:16px}
+.card h3,.card p,.card .more{padding-inline:10px}
+.card p{color:var(--muted);font-size:.95rem}
+.card .count{font-size:.8rem;color:var(--muted);padding-inline:10px;font-variant-numeric:tabular-nums}
+
+/* ticker */
+.ticker{background:var(--deep);color:var(--deep-ink);overflow:hidden;padding-block:20px;white-space:nowrap}
+.track{display:inline-flex;gap:0;animation:slide 60s linear infinite}
+.track span{font-family:var(--font-display);font-weight:700;font-size:clamp(1.2rem,2.6vw,1.8rem);padding-inline:22px;display:inline-flex;align-items:center;gap:44px}
+.track span::after{content:"";width:16px;height:16px;background:var(--btn);border-radius:50% 0 50% 0;flex:none}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.ticker{overflow-x:auto}}
+
+/* about */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.split>*{min-width:0}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.checks{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--btn) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%2310302E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.checks.dots li::before{width:8px;height:8px;margin:9px 6px 0;background:var(--accent)}
+.feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px}
+.feat{background:var(--tint);border-radius:var(--r);padding:26px;display:grid;gap:10px;min-width:0}
+.feat .ic{width:48px;height:48px;border-radius:14px;background:var(--surface);color:var(--accent);display:grid;place-items:center}
+.feat .ic svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.feat p{color:var(--muted);font-size:.95rem}
+
+/* appointment */
+.appt{background:var(--tint)}
+.appt-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,56px);align-items:start}
+.appt-grid>*{min-width:0}
+@media (max-width:860px){.appt-grid{grid-template-columns:1fr}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,32px)}
+.details{display:grid;gap:16px;margin:22px 0 0}
+.details div{display:grid;gap:2px}
+.details dt{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.details dd{margin:0}
+.details a{color:var(--accent);font-weight:600;text-decoration:none}
+.details a:hover{text-decoration:underline}
+table.hours{border-collapse:collapse;width:100%;max-width:340px;font-variant-numeric:tabular-nums}
+table.hours th,table.hours td{padding:5px 0;text-align:left;font-weight:500;border-bottom:1px solid var(--line)}
+table.hours td{text-align:right;color:var(--muted)}
+.todo{font-size:.85rem;color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:8px 10px}
+form{display:grid;gap:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+label{font-weight:600;font-size:.9rem;display:grid;gap:6px;min-width:0}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:90px;resize:vertical}
+.draft{display:none;margin-top:16px;gap:10px}
+.draft.show{display:grid}
+.draft pre{white-space:pre-wrap;word-break:break-word;margin:0;font:inherit;background:var(--tint);border-radius:12px;padding:14px}
+.note{font-size:.88rem;color:var(--muted)}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.member{display:grid;gap:12px;min-width:0}
+.member h3{font-size:1.15rem}
+.member .role{color:var(--muted);font-size:.9rem}
+
+/* tall treatment cards */
+.tall{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.tcard{position:relative;display:block;text-decoration:none;min-width:0}
+.tcard .meta{position:absolute;left:10px;right:10px;bottom:10px;background:var(--surface);border-radius:16px;padding:12px 14px;display:grid;gap:2px;border:1px solid var(--line)}
+.tcard .meta small{color:var(--accent);font-weight:600;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+.tcard .meta b{font-family:var(--font-display);font-size:1.05rem;line-height:1.2}
+.tcard:hover .meta{border-color:var(--accent)}
+
+/* offers */
+.offers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:860px;margin-inline:auto}
+.offer{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;display:grid;gap:14px;min-width:0}
+.offer.featured{background:var(--deep);color:var(--deep-ink);border-color:var(--deep)}
+.offer.featured p{color:var(--deep-muted)}
+.offer p{color:var(--muted)}
+.pill{justify-self:start;font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--btn);color:var(--btn-ink);padding:4px 12px;border-radius:999px}
+
+/* inner pages */
+.banner{background:var(--deep);color:var(--deep-ink);padding-block:clamp(40px,6vw,72px)}
+.banner h1{font-size:clamp(2rem,5vw,3.4rem);margin-top:10px}
+.crumbs{font-size:.9rem;color:var(--deep-muted)}
+.crumbs a{color:var(--deep-ink);text-decoration:none}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.tab{text-decoration:none;font-weight:600;font-size:.92rem;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+.tab[aria-current="page"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.group{margin-top:36px}
+.group h3{display:flex;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.group h3 span{font-family:var(--font-body);font-size:.82rem;font-weight:500;color:var(--muted);font-variant-numeric:tabular-nums}
+.list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+@media (max-width:700px){.list{grid-template-columns:1fr}}
+.list li{border-bottom:1px solid var(--line)}
+.list button{all:unset;box-sizing:border-box;display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;padding:14px 4px;cursor:pointer;font-weight:500}
+.list button:hover{color:var(--accent)}
+.list button:focus-visible{outline:3px solid var(--accent);outline-offset:-2px;border-radius:6px}
+.list .arrow{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ba figure{margin:0;display:grid;gap:8px}
+.ba figcaption{font-size:.85rem;color:var(--muted);font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+
+
+/* treatment detail */
+.detail{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:960px){.detail{grid-template-columns:1fr}}
+.prose{display:grid;gap:18px;min-width:0}
+.prose h2{margin-top:18px;font-size:clamp(1.5rem,3vw,2rem)}
+.prose h2:first-child{margin-top:0}
+.prose p{color:var(--muted);max-width:68ch}
+.prose p strong{color:var(--ink)}
+.prose a:not(.btn){color:var(--accent);font-weight:600}
+.dsteps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:640px){.dsteps{grid-template-columns:1fr}}
+.dstep{background:var(--tint);border-radius:var(--r);padding:22px;display:grid;gap:8px;align-content:start;min-width:0}
+.dstep .num{font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.dstep p{font-size:.95rem}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){.pair{grid-template-columns:1fr}}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.cols2{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:10px;align-content:start;min-width:0}
+.panel .checks{margin-top:4px}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0 20px}
+.faq summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--accent);flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding-bottom:18px}
+.side{position:sticky;top:96px;display:grid;gap:16px;min-width:0}
+@media (max-width:960px){.side{position:static}}
+.side .box{padding:22px}
+.side h3{margin-bottom:12px}
+.slist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.slist a,.slist button{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;padding:12px 14px;border-radius:12px;background:var(--bg);font-weight:500;cursor:pointer;text-decoration:none;color:var(--ink)}
+.slist a:hover,.slist button:hover{background:var(--tint);color:var(--accent)}
+.slist a[aria-current="page"]{background:var(--btn);color:var(--btn-ink);font-weight:600}
+.slist a:focus-visible,.slist button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.review{font-size:.88rem}
+.list a.rowlink{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;padding:14px 4px;font-weight:600;text-decoration:none;color:var(--ink)}
+.list a.rowlink:hover{color:var(--accent)}
+.list a.rowlink .arrow{color:var(--accent)}
+
+footer{background:var(--deep);color:var(--deep-muted);font-size:.94rem}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-block:56px 36px}
+@media (max-width:900px){footer .cols{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .cols{grid-template-columns:1fr}}
+footer h3{color:var(--deep-ink);font-size:1.05rem;margin-bottom:14px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+footer a{color:var(--deep-muted);text-decoration:none}
+footer a:hover{color:var(--deep-ink);text-decoration:underline}
+.footer-logo{display:block;width:200px;max-width:100%;height:auto}
+footer .base{border-top:1px solid rgba(255,255,255,.12);padding-block:18px;font-size:.84rem}
+@media (prefers-reduced-motion:no-preference){.view{animation:fade .25s ease-out}@keyframes fade{from{opacity:.4;transform:translateY(6px)}}}
+
+.stars{display:inline-flex;gap:2px}.stars svg{width:18px;height:18px;fill:#E8A91B}.stars svg.off{fill:var(--line)}
+.revsum{display:flex;gap:10px;align-items:center;justify-content:center;margin:-8px 0 26px;color:var(--muted)}.revsum b{color:var(--ink);font-size:1.1rem}
+.revs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.rev{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:14px;align-content:start;min-width:0}
+.rev blockquote{margin:0;color:var(--ink)}.rev figcaption{display:grid;font-size:.9rem;color:var(--muted)}.rev figcaption b{color:var(--ink)}
+
+.icon-btn.lang{width:auto;padding:0 14px;font-weight:600;font-size:.92rem;white-space:nowrap}
+html[lang=ar]{--font-display:'Cairo','Segoe UI',Tahoma,sans-serif;--font-body:'Cairo','Segoe UI',Tahoma,sans-serif}
+html[lang=ar] *{letter-spacing:0!important}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3{line-height:1.3}
+html[lang=ar] .eyebrow,html[lang=ar] .pill,html[lang=ar] .phtag{text-transform:none}
+html[dir=rtl] .nav .cta{margin-left:0;margin-right:6px}
+html[dir=rtl] .sub{left:auto;right:0}
+html[dir=rtl] .phtag{left:auto;right:12px}
+html[dir=rtl] .sec-head.left{text-align:right}
+html[dir=rtl] .float.a{left:auto;right:-14px}
+html[dir=rtl] .float.b{right:auto;left:-8px}
+@media (max-width:820px){html[dir=rtl] .float.a{right:0;left:auto}html[dir=rtl] .float.b{left:0;right:auto}}
+html[dir=rtl] table.hours th{text-align:right}
+html[dir=rtl] table.hours td{text-align:left}
+html[dir=rtl] .ticker{direction:ltr}
+html[dir=rtl] .ticker span{direction:rtl}
+a[href^="tel:"],a[href^="mailto:"],#f-phone{direction:ltr;unicode-bidi:isolate;display:inline-block}
+html[dir=rtl] #f-phone{text-align:right}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap" id="topbar"></div></div>
+<header class="site-header" id="hdr">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Bloom Clinic home"><img class="lg-h" src="images/bloom-logo-horizontal.png" alt="" width="130" height="36"><img class="lg-s" src="images/bloom-logo-stacked.png" alt="" width="80" height="53"></a>
+    <div class="tools">
+      <ul class="nav" id="nav"></ul>
+      <button class="icon-btn lang" id="lang" type="button" lang="ar" aria-label="التبديل إلى العربية">العربية</button>
+      <button class="icon-btn" id="theme" aria-label="Switch light or dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols" id="fcols"></div>
+    <div class="base" id="base"></div>
+  </div>
+</footer>
+
+<script type="application/json" id="seed">{
+  "site": {
+    "name": "Bloom Aesthetic and Laser Clinic",
+    "seoTitle": "Bloom Aesthetic and Laser Clinic",
+    "seoDesc": "Bloom Clinic is an aesthetic and laser clinic. Explore treatment information and request a consultation.",
+    "phone": "04 399 3434",
+    "phoneTel": "+97143993434",
+    "email": "marketing@bloom-dubai.ae",
+    "address": "Villa no. 1059, Al Wasl Road, Umm Suqeim, Dubai",
+    "streetAddress": "Villa no. 1059, Al Wasl Road",
+    "locality": "Umm Suqeim, Dubai",
+    "hours": [
+      {
+        "day": "Monday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Tuesday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Wednesday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Thursday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Friday",
+        "open": "13:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Saturday",
+        "open": "11:00",
+        "close": "19:00",
+        "closed": false
+      },
+      {
+        "day": "Sunday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      }
+    ],
+    "footerText": "Face, body, laser, hair and plastic surgery treatments.",
+    "copyright": "© The Bloom Clinic. Aesthetic and laser clinic."
+  },
+  "home": {
+    "eyebrow": "Aesthetic and laser clinic",
+    "title": "Skin, hair and body care that brings out your best.",
+    "text": "Face and body treatments, laser, hair restoration and plastic surgery in one clinic. Book a consultation and the team will help you choose what fits.",
+    "btn1": "Book an appointment",
+    "btn2": "Explore services",
+    "photo": "images/photo-smile.jpg",
+    "focus": "center",
+    "floatA": "treatments listed",
+    "floatB": "specialists",
+    "servicesEyebrow": "Our services",
+    "servicesTitle": "Care for every area",
+    "servicesSub": "Choose an area to see every treatment we offer.",
+    "aboutEyebrow": "About Bloom",
+    "aboutTitle": "A clinic built around your consultation",
+    "aboutText": "Bloom Aesthetic and Laser Clinic offers treatments across face, body, laser, hair and plastic surgery. Every plan starts with a conversation about what you want.",
+    "aboutChecks": [
+      "Face, body, laser and hair care in one place",
+      "Surgical procedures planned after a consultation",
+      "Specialists for each treatment area"
+    ],
+    "aboutBtn": "More about us",
+    "aboutPhoto": "images/photo-lobby.jpg",
+    "aboutFocus": "center",
+    "features": [
+      {
+        "icon": "care",
+        "title": "Consultation first",
+        "text": "Your specialist discusses options and suitability before any treatment is booked."
+      },
+      {
+        "icon": "areas",
+        "title": "Five areas of care",
+        "text": "Face, body, laser, hair and plastic surgery are all offered here."
+      },
+      {
+        "icon": "team",
+        "title": "Specialists you can ask",
+        "text": "Choose a specialist when you book, or leave it to the team."
+      }
+    ],
+    "apptEyebrow": "Appointment",
+    "apptTitle": "Book your consultation",
+    "apptSub": "Tell us what you are interested in and when suits you.",
+    "teamEyebrow": "Our specialists",
+    "teamTitle": "Meet the team",
+    "teamBtn": "View all specialists",
+    "popularEyebrow": "Popular treatments",
+    "popularTitle": "Where many visits begin",
+    "offersEyebrow": "Promotions",
+    "offersTitle": "Current offers",
+    "offersSub": "Ask the team which offers are running today."
+  },
+  "areas": [
+    {
+      "key": "face",
+      "title": "Face Treatments",
+      "art": "face",
+      "blurb": "Facials, peels, PRP and skin treatments for the face.",
+      "intro": "Facials, skin concerns and non-surgical lifting, from relaxing care to corrective treatments.",
+      "photo": "images/photo-facial.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Face Treatments",
+          "items": [
+            "Relaxing Facial",
+            "Oxygeneo Facial",
+            "Hydra Facial",
+            "Acne Treatment",
+            "Acne Scar Treatment",
+            "PRP Treatment",
+            "Skin Tags Removal",
+            "Face Lifting & Tightening",
+            "Carboxy Therapy Treatment",
+            "Mesotherapy",
+            "Microdermabrasion",
+            "Rosacea Treatment",
+            "Skin Peels",
+            "Collagenizing Treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "body",
+      "title": "Body Treatments",
+      "art": "body",
+      "blurb": "Toning and tightening for the body.",
+      "intro": "Non-surgical shaping for the body.",
+      "photo": "images/photo-body.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Body Treatments",
+          "items": [
+            "Body Toning and Tightening"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "laser",
+      "title": "Laser Treatment",
+      "art": "laser",
+      "blurb": "Laser hair removal, pigmentation, tattoo removal and rejuvenation.",
+      "intro": "Laser care for skin, hair and pigmentation, on the face and body.",
+      "photo": "images/photo-laser.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Laser Treatment",
+          "items": [
+            "Laser Beard Shaping",
+            "Melasma Pigmentation",
+            "Spider Vein Removal",
+            "Hair Bleaching & Hair Removal Laser",
+            "Acne Treatment (Laser)",
+            "Laser Tattoo Removal",
+            "Laser Face & Body Rejuvenation",
+            "Laser Face & Body Hair Removal",
+            "White Hair Removal"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hair",
+      "title": "Hair Treatments",
+      "art": "hair",
+      "blurb": "Hair loss treatments, scalp care and beard restoration.",
+      "intro": "Treatments for hair loss, scalp health, beard and pigmentation.",
+      "photo": "images/photo-hair.jpg",
+      "focus": "upper",
+      "groups": [
+        {
+          "name": "Hair Treatments",
+          "items": [
+            "Carboxy Therapy for Scalp",
+            "Mesotherapy for Hair Loss",
+            "PRP for Hair Loss",
+            "Beard Restoration",
+            "Tricho Pigmentation"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "plastic",
+      "title": "Plastic Surgeries",
+      "art": "plus",
+      "blurb": "Surgical procedures for the face, body and breast.",
+      "intro": "Surgical procedures for the face, body and breast, planned after a consultation.",
+      "photo": "images/photo-office.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Face",
+          "items": [
+            "Nose Shaping",
+            "Laser Resurfacing Treatment",
+            "Blepharoplasty",
+            "Face Lift Surgery",
+            "Brow & Forehead Lift",
+            "Facial Implants",
+            "Lip Augmentation",
+            "Earlobe Repair",
+            "Ear Piercing",
+            "Dimple Creation",
+            "Thread Lift",
+            "Stem Cells Treatment"
+          ]
+        },
+        {
+          "name": "Body",
+          "items": [
+            "Vaser Liposuction",
+            "Abdominoplasty",
+            "Liposuction",
+            "Post Massive Weight Loss",
+            "Body Contouring",
+            "Arm Lift",
+            "Body Lift",
+            "Buttock Lift / Thigh Lift"
+          ]
+        },
+        {
+          "name": "Breast",
+          "items": [
+            "Breast Enlargement",
+            "Breast Reduction",
+            "Gynecomastia",
+            "Breast Lifting (Mastopexy)"
+          ]
+        },
+        {
+          "name": "Other procedures",
+          "items": [
+            "Hair Transplant",
+            "Tissue Expansion Surgery",
+            "Jplasma (Renuvion)"
+          ]
+        }
+      ]
+    }
+  ],
+  "tourism": {
+    "cardTitle": "Medical Tourism",
+    "cardCount": "For patients travelling in",
+    "cardText": "Plan your treatment around a visit from abroad.",
+    "pageTitle": "Medical Tourism",
+    "eyebrow": "For patients travelling in",
+    "heading": "Treatment, planned around your trip",
+    "text": "Send the treatment you are interested in, your travel dates and any questions. The team will reply with what the visit involves.",
+    "btn1": "Send an enquiry",
+    "btn2": "See all treatments",
+    "photo": "images/photo-reception.jpg",
+    "focus": "center",
+    "steps": [
+      {
+        "title": "Tell us what you need",
+        "text": "Choose a treatment from any service area and send an enquiry."
+      },
+      {
+        "title": "Share your dates",
+        "text": "Tell us when you can travel so the visit can be scheduled around you."
+      },
+      {
+        "title": "Meet your specialist",
+        "text": "Your specialist confirms the plan and answers your questions in person."
+      }
+    ],
+    "note": ""
+  },
+  "treatments": [
+    {
+      "slug": "hydra-facial",
+      "name": "Hydra Facial",
+      "area": "face",
+      "seoTitle": "Hydra Facial in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Hydra Facial in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Hydra Facial in Dubai",
+      "heroPhoto": "images/photo-hydra.jpg",
+      "heroFocus": "center",
+      "heading": "Hydra Facial at Bloom Clinic Dubai",
+      "paragraphs": [
+        "A Hydra Facial is a multi-step facial that cleanses, exfoliates and hydrates the skin. At **Bloom Clinic Dubai**, your therapist starts with a conversation about your skin and what you would like to discuss, then explains how the treatment would work for you.",
+        "Looking for facials in Dubai? Bloom Clinic is an aesthetic and laser clinic offering a range of [face treatments](#services-face), from relaxing facials and the [Oxygeneo Facial](#treatment-oxygeneo-facial) to skin peels and microdermabrasion. A consultation helps you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens in a session",
+      "steps": [
+        {
+          "title": "Cleanse",
+          "text": "Your therapist cleanses the skin and removes make-up and surface debris."
+        },
+        {
+          "title": "Exfoliate and extract",
+          "text": "A gentle exfoliation and suction step lifts away dead skin cells and loosens congestion from pores."
+        },
+        {
+          "title": "Hydrate",
+          "text": "Serums chosen for your skin are applied to nourish and hydrate."
+        },
+        {
+          "title": "Protect",
+          "text": "The session finishes with moisturiser and sun protection, which matters in Dubai's strong sun."
+        }
+      ],
+      "stepsNote": "Your therapist confirms the exact steps, products and session length at your consultation.",
+      "photoB": "images/photo-facial.jpg",
+      "photoC": "images/photo-flatlay.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like to discuss hydration and skin texture",
+        "Anyone comparing facials in Dubai before choosing a treatment",
+        "People who want a facial with a clear explanation of each step"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your skincare products, medicines and allergies",
+        "Mention any recent sun exposure or skin treatments",
+        "Use sun protection afterwards and follow your therapist's advice"
+      ],
+      "faqTitle": "Hydra Facial questions",
+      "faqs": [
+        {
+          "q": "Is a Hydra Facial suitable for every skin type?",
+          "a": "It is used on a range of skin types. Your therapist checks your skin at a consultation and tells you if another facial would suit you better."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on your skin and what you would like to improve. Your therapist can suggest a plan and explain what to expect from it."
+        },
+        {
+          "q": "Is there downtime after a Hydra Facial?",
+          "a": "Many people return to normal activities afterwards. Some notice mild redness or sensitivity. Your therapist explains what to expect for your skin."
+        },
+        {
+          "q": "Can I combine it with other treatments?",
+          "a": "Often, but the timing matters. Tell the team about any laser, peel or other skin treatments you have had or plan to have, and they will advise on spacing."
+        },
+        {
+          "q": "How do I request a Hydra Facial at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about a Hydra Facial?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Facials at Bloom Clinic Dubai",
+      "related": [
+        "Relaxing Facial",
+        "Oxygeneo Facial",
+        "Hydra Facial",
+        "Microdermabrasion",
+        "Skin Peels",
+        "Collagenizing Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "oxygeneo-facial",
+      "name": "Oxygeneo Facial",
+      "area": "face",
+      "seoTitle": "Oxygeneo Facial in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Oxygeneo Facial in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Oxygeneo Facial in Dubai",
+      "heroPhoto": "images/photo-room.jpg",
+      "heroFocus": "center",
+      "heading": "Oxygeneo Facial at Bloom Clinic Dubai",
+      "paragraphs": [
+        "An Oxygeneo Facial is a multi-step facial that combines exfoliation, oxygen-based treatment and serums in one session. At **Bloom Clinic Dubai**, your therapist starts with a conversation about your skin and what you would like to discuss, then explains how the treatment would work for you.",
+        "Comparing facials in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including the [Hydra Facial](#treatment-hydra-facial), relaxing facials and skin peels. A consultation helps you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens in a session",
+      "steps": [
+        {
+          "title": "Prepare",
+          "text": "Your therapist checks your skin, talks through your concerns and cleanses the face."
+        },
+        {
+          "title": "Exfoliate",
+          "text": "A gentle exfoliation step lifts away dead skin cells from the surface."
+        },
+        {
+          "title": "Treat",
+          "text": "An oxygen-based step and serums chosen for your skin are applied."
+        },
+        {
+          "title": "Protect",
+          "text": "The session finishes with moisturiser and sun protection, which matters in Dubai's strong sun."
+        }
+      ],
+      "stepsNote": "Your therapist confirms the exact steps, products and session length at your consultation.",
+      "photoB": "images/photo-facial.jpg",
+      "photoC": "images/photo-flatlay.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like to discuss skin texture, dullness or hydration",
+        "Anyone comparing facials in Dubai before choosing a treatment",
+        "People who want a facial with a clear explanation of each step"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your skincare products, medicines and allergies",
+        "Mention any recent sun exposure or skin treatments",
+        "Use sun protection afterwards and follow your therapist's advice"
+      ],
+      "faqTitle": "Oxygeneo Facial questions",
+      "faqs": [
+        {
+          "q": "Is an Oxygeneo Facial suitable for every skin type?",
+          "a": "It is used on a range of skin types. Your therapist checks your skin at a consultation and tells you if another facial would suit you better."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on your skin and what you would like to improve. Your therapist can suggest a plan and explain what to expect from it."
+        },
+        {
+          "q": "Is there downtime after an Oxygeneo Facial?",
+          "a": "Many people return to normal activities afterwards. Some notice mild redness or sensitivity. Your therapist explains what to expect for your skin."
+        },
+        {
+          "q": "What is the difference between an Oxygeneo Facial and a Hydra Facial?",
+          "a": "Both are multi-step facials, with different steps and products. Your therapist can explain the differences and which suits your skin at a consultation."
+        },
+        {
+          "q": "How do I request an Oxygeneo Facial at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about an Oxygeneo Facial?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Facials at Bloom Clinic Dubai",
+      "related": [
+        "Relaxing Facial",
+        "Oxygeneo Facial",
+        "Hydra Facial",
+        "Microdermabrasion",
+        "Skin Peels",
+        "Collagenizing Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "skin-tag-removal",
+      "name": "Skin Tags Removal",
+      "area": "face",
+      "seoTitle": "Skin Tag Removal in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Skin tag removal in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Skin Tag Removal in Dubai",
+      "heroPhoto": "images/photo-room.jpg",
+      "heroFocus": "center",
+      "heading": "Skin Tag Removal at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Skin tags are small, soft growths of skin that often appear on the neck, eyelids, underarms or other areas where skin folds. Many people ask about removing them because they catch on clothing or jewellery, or because of how they look. At **Bloom Clinic Dubai**, your specialist examines the area first and explains the options that may suit you.",
+        "Looking for skin tag removal in Dubai? Bloom Clinic offers a range of [face treatments](#services-face) and skin care. A consultation lets you ask questions and decide at your own pace."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks about the growth, how long it has been there and any changes, then examines it."
+        },
+        {
+          "title": "Plan",
+          "text": "Your specialist explains whether removal is suitable and which method they would use."
+        },
+        {
+          "title": "Treatment",
+          "text": "The area is cleaned and the skin tag is removed by your specialist using the agreed method."
+        },
+        {
+          "title": "Aftercare",
+          "text": "You receive clear advice on caring for the area and protecting it from the sun while it heals."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the method, any numbing and the session length at your consultation.",
+      "photoB": "",
+      "photoC": "",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People with small, soft growths that irritate or bother them",
+        "People who want a specialist to check the growth before any treatment",
+        "Anyone who would like the options and aftercare explained first"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, allergies and any bleeding or healing problems",
+        "Do not try to cut or remove a skin tag yourself",
+        "Keep the area clean and protected from the sun, and follow your specialist's advice"
+      ],
+      "faqTitle": "Skin tag removal questions",
+      "faqs": [
+        {
+          "q": "Are skin tags harmful?",
+          "a": "Skin tags are usually harmless, but any growth that changes, bleeds or looks unusual should be examined by a specialist before treatment."
+        },
+        {
+          "q": "Can skin tags come back after removal?",
+          "a": "A removed skin tag does not usually grow back in the same place, but new ones can form elsewhere. Your specialist can tell you what to expect."
+        },
+        {
+          "q": "Is removal painful?",
+          "a": "Comfort depends on the size and site of the skin tag and the method used. Your specialist explains what you may feel and how comfort is managed."
+        },
+        {
+          "q": "How long does healing take?",
+          "a": "This depends on the area and method. Your specialist gives you aftercare advice and tells you what healing to expect."
+        },
+        {
+          "q": "How do I request skin tag removal at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about skin tag removal?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Skin Tags Removal",
+        "Acne Treatment",
+        "Acne Scar Treatment",
+        "Rosacea Treatment",
+        "Skin Peels",
+        "Mesotherapy"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "mesotherapy-face",
+      "name": "Mesotherapy",
+      "area": "face",
+      "seoTitle": "Mesotherapy for Face in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Face mesotherapy in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Mesotherapy for Face in Dubai",
+      "heroPhoto": "images/photo-facial.jpg",
+      "heroFocus": "center",
+      "heading": "Face Mesotherapy at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Mesotherapy for the face is a treatment in which small amounts of a prepared solution are placed in the skin with very fine needles. People ask about it to discuss skin hydration, dullness and texture. At **Bloom Clinic Dubai**, your specialist examines your skin, explains what the treatment involves and tells you whether it may suit you.",
+        "Looking for face mesotherapy in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including [PRP](#services-face), facials and skin peels. A consultation lets you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens in a session",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks about your skin, medicines and allergies, and what you would like to discuss."
+        },
+        {
+          "title": "Prepare",
+          "text": "The skin is cleansed and, if needed, prepared for comfort."
+        },
+        {
+          "title": "Treatment",
+          "text": "Your specialist places the chosen solution in the skin using fine needles across the agreed areas."
+        },
+        {
+          "title": "Aftercare",
+          "text": "You receive clear advice on caring for your skin and protecting it from the sun afterwards."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the solution, technique, number of sessions and session length at your consultation.",
+      "photoB": "images/photo-flatlay.jpg",
+      "photoC": "images/photo-room.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like to discuss dull, dry or tired-looking skin",
+        "People comparing face treatments before choosing one",
+        "Anyone who wants a specialist to explain the options and aftercare first"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, allergies and health conditions, including blood thinners",
+        "Mention any recent sun exposure, skin treatments or cold sores",
+        "Keep the skin clean, protect it from the sun and follow your specialist's advice"
+      ],
+      "faqTitle": "Face mesotherapy questions",
+      "faqs": [
+        {
+          "q": "What is mesotherapy for the face?",
+          "a": "It is a treatment in which a prepared solution is placed in the skin with fine needles. Your specialist explains the solution and the areas treated at your consultation."
+        },
+        {
+          "q": "Is face mesotherapy painful?",
+          "a": "Comfort varies from person to person and area to area. Your specialist explains what you may feel and how comfort is managed."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on your skin and what you would like to discuss. Your specialist can suggest a plan and explain what to expect from it."
+        },
+        {
+          "q": "Is there downtime after mesotherapy?",
+          "a": "Some people notice redness, swelling or small marks for a short time. Your specialist explains what to expect for your skin."
+        },
+        {
+          "q": "How do I request face mesotherapy at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about face mesotherapy?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Mesotherapy",
+        "PRP Treatment",
+        "Skin Peels",
+        "Microdermabrasion",
+        "Collagenizing Treatment",
+        "Carboxy Therapy Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "relaxing-facial",
+      "name": "Relaxing Facial",
+      "area": "face",
+      "seoTitle": "Relaxing Facial in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Relaxing Facial in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Relaxing Facial in Dubai",
+      "heroPhoto": "images/photo-room.jpg",
+      "heroFocus": "center",
+      "heading": "Relaxing Facial at Bloom Clinic Dubai",
+      "paragraphs": [
+        "A relaxing facial is a calming, skin-care focused session that cleanses, nourishes and gives you time to unwind. At **Bloom Clinic Dubai**, your therapist starts with a conversation about your skin and what you would like to discuss, then explains the steps and products they would use.",
+        "Looking for facials in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including the [Hydra Facial](#treatment-hydra-facial) and the [Oxygeneo Facial](#treatment-oxygeneo-facial). A consultation helps you compare options and choose at your own pace."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Skin check",
+          "text": "Your therapist looks at your skin and asks about your routine, allergies and sensitivities."
+        },
+        {
+          "title": "Cleanse",
+          "text": "The face is cleansed and prepared."
+        },
+        {
+          "title": "Nourish and relax",
+          "text": "Products chosen for your skin are applied, often with a gentle massage."
+        },
+        {
+          "title": "Protect",
+          "text": "The session finishes with moisturiser and sun protection, which matters in Dubai's strong sun."
+        }
+      ],
+      "stepsNote": "Your therapist confirms the exact steps, products and session length when you book.",
+      "photoB": "images/photo-facial.jpg",
+      "photoC": "images/photo-flatlay.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like a gentle, calming facial",
+        "Anyone who wants to look after their skin between other treatments",
+        "People who want each step explained before it begins"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your skincare products, medicines and allergies",
+        "Remove make-up before you come if you can, or ask your therapist to",
+        "Use sun protection afterwards and follow your therapist's advice"
+      ],
+      "faqTitle": "Relaxing facial questions",
+      "faqs": [
+        {
+          "q": "Is a relaxing facial suitable for sensitive skin?",
+          "a": "Often, but it depends on your skin. Tell your therapist about any sensitivities, and they will choose products with that in mind."
+        },
+        {
+          "q": "How often can I have a relaxing facial?",
+          "a": "That depends on your skin and goals. Your therapist can suggest a schedule."
+        },
+        {
+          "q": "Is there downtime afterwards?",
+          "a": "Most people return to normal activities. Some notice mild redness. Your therapist explains what to expect for your skin."
+        },
+        {
+          "q": "What is the difference between a relaxing facial and a Hydra Facial?",
+          "a": "Both are facials with different steps and products. Your therapist can explain which suits your skin and what you would like to discuss."
+        },
+        {
+          "q": "How do I request a relaxing facial at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about a relaxing facial?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Facials at Bloom Clinic Dubai",
+      "related": [
+        "Relaxing Facial",
+        "Oxygeneo Facial",
+        "Hydra Facial",
+        "Microdermabrasion",
+        "Skin Peels",
+        "Collagenizing Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "acne-treatment",
+      "name": "Acne Treatment",
+      "area": "face",
+      "seoTitle": "Acne Treatment in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Acne treatment in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Acne Treatment in Dubai",
+      "heroPhoto": "images/photo-facial.jpg",
+      "heroFocus": "center",
+      "heading": "Acne Treatment at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Acne can affect the face, chest and back, and it can be frustrating to manage. At **Bloom Clinic Dubai**, your specialist looks at your skin, asks about your history and explains the options that may suit you, so you can decide what to do next.",
+        "Looking for acne treatment in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including [skin peels](#services-face), [acne scar treatment](#treatment-acne-scar-treatment) and laser care. A consultation helps you understand what may help your skin."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks how long you have had acne, what you have tried and your medicines and allergies."
+        },
+        {
+          "title": "Skin assessment",
+          "text": "They examine your skin and explain what they see."
+        },
+        {
+          "title": "Plan",
+          "text": "They suggest options and a realistic plan, and answer your questions."
+        },
+        {
+          "title": "Treatment and follow-up",
+          "text": "Treatment starts when you are ready, with advice on skin care at home and review visits."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the treatments, number of sessions and costs at your consultation.",
+      "photoB": "images/photo-flatlay.jpg",
+      "photoC": "images/photo-room.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People with spots, blocked pores or inflamed skin who want a specialist opinion",
+        "People whose usual products have not worked as they hoped",
+        "Anyone who wants to understand their options before starting treatment"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, skincare products, allergies and pregnancy plans",
+        "Avoid picking or squeezing spots, which can lead to marks and scars",
+        "Use sun protection and follow your specialist's advice"
+      ],
+      "faqTitle": "Acne treatment questions",
+      "faqs": [
+        {
+          "q": "Can acne be cured?",
+          "a": "Acne can often be improved and managed, but it can come back. Your specialist explains what to expect for your skin."
+        },
+        {
+          "q": "How long does acne treatment take?",
+          "a": "This depends on your skin and the plan. Your specialist gives you an idea of timing after assessing your skin."
+        },
+        {
+          "q": "Will I need more than one treatment?",
+          "a": "Often a plan includes more than one step or visit. Your specialist explains what they recommend and why."
+        },
+        {
+          "q": "Can acne scars be treated as well?",
+          "a": "Often, once the acne is under control. See our acne scar treatment page or ask at your consultation."
+        },
+        {
+          "q": "How do I request acne treatment at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about acne treatment?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Acne Treatment",
+        "Acne Scar Treatment",
+        "Acne Treatment (Laser)",
+        "Skin Peels",
+        "Microdermabrasion",
+        "Mesotherapy"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "acne-scar-treatment",
+      "name": "Acne Scar Treatment",
+      "area": "face",
+      "seoTitle": "Acne Scar Treatment in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Acne scar treatment in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Acne Scar Treatment in Dubai",
+      "heroPhoto": "images/photo-hydra.jpg",
+      "heroFocus": "center",
+      "heading": "Acne Scar Treatment at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Acne can leave marks and uneven texture on the skin, and different kinds of scars respond to different approaches. At **Bloom Clinic Dubai**, your specialist examines your skin, explains the type of marks you have and talks through the options that may suit you.",
+        "Looking for acne scar treatment in Dubai? Bloom Clinic offers a range of [face treatments](#services-face) and laser care, alongside [acne treatment](#treatment-acne-treatment). A consultation helps you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks about your acne history, previous treatments, medicines and what you would like to discuss."
+        },
+        {
+          "title": "Skin assessment",
+          "text": "They examine the scars and marks and explain what they see."
+        },
+        {
+          "title": "Plan",
+          "text": "They suggest options, how many sessions may be needed and what results to expect."
+        },
+        {
+          "title": "Treatment and aftercare",
+          "text": "Treatment is carried out as agreed, with clear advice on caring for your skin afterwards."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the treatments, number of sessions and costs at your consultation.",
+      "photoB": "images/photo-flatlay.jpg",
+      "photoC": "images/photo-facial.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People with marks or uneven texture left after acne",
+        "People whose acne is under control and who want to discuss scar options",
+        "Anyone who wants the options explained before starting"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, allergies and any scarring tendencies",
+        "Avoid sun exposure before and after treatment, and use sun protection",
+        "Follow your specialist's advice on skin care and healing"
+      ],
+      "faqTitle": "Acne scar treatment questions",
+      "faqs": [
+        {
+          "q": "Can acne scars be removed completely?",
+          "a": "Scars can often be improved, but complete removal is not always possible. Your specialist explains what to expect for your skin."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on the type and depth of your scars. Your specialist suggests a plan after examining your skin."
+        },
+        {
+          "q": "When is the right time to treat scars?",
+          "a": "Often once acne is under control. Your specialist advises you on timing."
+        },
+        {
+          "q": "Is there downtime?",
+          "a": "This depends on the treatment. Your specialist explains what to expect before you decide."
+        },
+        {
+          "q": "How do I request acne scar treatment at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about acne scar treatment?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Acne Treatment",
+        "Acne Scar Treatment",
+        "Acne Treatment (Laser)",
+        "Skin Peels",
+        "Microdermabrasion",
+        "Mesotherapy"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    }
+  ],
+  "featured": [
+    {
+      "name": "Hydra Facial",
+      "label": "Face",
+      "photo": "images/photo-hydra.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Relaxing Facial",
+      "label": "Face",
+      "photo": "images/photo-facial.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Laser Face & Body Hair Removal",
+      "label": "Laser",
+      "photo": "images/photo-laser.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Body Contouring",
+      "label": "Plastic surgery",
+      "photo": "images/photo-body.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Hair Transplant",
+      "label": "Plastic surgery",
+      "photo": "images/photo-hair.jpg",
+      "focus": "upper"
+    }
+  ],
+  "offers": [],
+  "offersEmpty": "There are no offers running right now. Contact us to ask about current prices and packages.",
+  "offerBtn": "Ask about this offer",
+  "reviews": {
+    "eyebrow": "Patient reviews",
+    "title": "What our patients say",
+    "rating": "",
+    "count": "",
+    "link": "",
+    "linkText": "Read more reviews on Google",
+    "items": []
+  },
+  "team": [
+    {
+      "name": "Kanta Jethwani",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    },
+    {
+      "name": "Anas",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    },
+    {
+      "name": "Dr. Manoj Kumar",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    },
+    {
+      "name": "Dr. Tariq Maysoun",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    }
+  ],
+  "specialistsPage": {
+    "eyebrow": "The team",
+    "title": "People who plan and carry out your treatment"
+  },
+  "directors": [
+    {
+      "name": "Kanta Jethwani",
+      "role": "Director, Bloom Aesthetic and Laser Clinic",
+      "bio": "",
+      "photo": ""
+    }
+  ],
+  "about": {
+    "eyebrow": "About us",
+    "title": "Aesthetic and laser clinic",
+    "lead": "Bloom offers aesthetic and surgical care across five areas: face treatments, body treatments, laser, hair and plastic surgery.",
+    "text": "Each patient starts with a consultation, so the treatment is chosen to suit the person and the concern.",
+    "photo": "images/photo-lobby.jpg",
+    "focus": "center"
+  },
+  "gallery": {
+    "resultsEyebrow": "Results",
+    "resultsTitle": "Before and after",
+    "resultsSub": "Patient results shown with consent.",
+    "pairs": [
+      {
+        "title": "Face treatments",
+        "before": "",
+        "after": ""
+      },
+      {
+        "title": "Laser treatment",
+        "before": "",
+        "after": ""
+      },
+      {
+        "title": "Hair treatments",
+        "before": "",
+        "after": ""
+      }
+    ],
+    "clinicEyebrow": "The clinic",
+    "clinicTitle": "Inside Bloom",
+    "tiles": [
+      {
+        "photo": "images/photo-flatlay.jpg",
+        "caption": "Skincare products"
+      },
+      {
+        "photo": "images/photo-room.jpg",
+        "caption": "Treatment room"
+      },
+      {
+        "photo": "images/photo-lobby.jpg",
+        "caption": "Clinic lobby"
+      },
+      {
+        "photo": "images/photo-office.jpg",
+        "caption": "Consultation office"
+      },
+      {
+        "photo": "images/photo-reception.jpg",
+        "caption": "Reception"
+      },
+      {
+        "photo": "images/photo-hydra.jpg",
+        "caption": "Hydra facial"
+      }
+    ]
+  }
+}</script>
+<script type="application/json" id="seed-ar">{
+  "site": {
+    "name": "عيادة بلوم للتجميل والليزر",
+    "seoTitle": "عيادة بلوم للتجميل والليزر في دبي",
+    "seoDesc": "عيادة بلوم للتجميل والليزر في دبي. تعرّف على العلاجات المتوفرة واحجز استشارتك.",
+    "address": "فيلا رقم 1059، شارع الوصل، أم سقيم، دبي",
+    "streetAddress": "فيلا رقم 1059، شارع الوصل",
+    "locality": "أم سقيم، دبي",
+    "footerText": "علاجات الوجه والجسم والليزر والشعر وجراحات التجميل.",
+    "copyright": "© عيادة بلوم. عيادة تجميل وليزر."
+  },
+  "home": {
+    "eyebrow": "عيادة تجميل وليزر",
+    "title": "عناية بالبشرة والشعر والجسم تُبرز أجمل ما فيك.",
+    "text": "علاجات للوجه والجسم، والليزر، وزراعة الشعر، وجراحات التجميل في عيادة واحدة. احجز استشارتك وسيساعدك فريقنا على اختيار الأنسب لك.",
+    "btn1": "احجز موعدًا",
+    "btn2": "استعرض الخدمات",
+    "floatA": "علاج متاح",
+    "floatB": "أخصائيون",
+    "servicesEyebrow": "خدماتنا",
+    "servicesTitle": "عناية لكل منطقة",
+    "servicesSub": "اختر القسم لتتعرّف على جميع العلاجات المتوفرة لدينا.",
+    "aboutEyebrow": "عن بلوم",
+    "aboutTitle": "عيادة تبدأ من استشارتك",
+    "aboutText": "تقدّم عيادة بلوم للتجميل والليزر علاجات للوجه والجسم والليزر والشعر وجراحات التجميل. وتبدأ كل خطة علاجية بحوار حول ما تتطلع إليه.",
+    "aboutChecks": [
+      "علاجات الوجه والجسم والليزر والشعر في مكان واحد",
+      "تُخطَّط العمليات الجراحية بعد الاستشارة",
+      "أخصائيون لكل قسم علاجي"
+    ],
+    "aboutBtn": "المزيد عنّا",
+    "features": [
+      {
+        "title": "الاستشارة أولًا",
+        "text": "يناقش معك الأخصائي الخيارات ومدى ملاءمتها قبل حجز أي علاج."
+      },
+      {
+        "title": "خمسة أقسام للعناية",
+        "text": "الوجه والجسم والليزر والشعر وجراحات التجميل، جميعها متوفرة هنا."
+      },
+      {
+        "title": "أخصائيون بين يديك",
+        "text": "اختر الأخصائي عند الحجز، أو اترك الاختيار للفريق."
+      }
+    ],
+    "apptEyebrow": "الموعد",
+    "apptTitle": "احجز استشارتك",
+    "apptSub": "أخبرنا بالعلاج الذي يهمّك والوقت المناسب لك.",
+    "teamEyebrow": "أخصائيونا",
+    "teamTitle": "تعرّف على الفريق",
+    "teamBtn": "عرض جميع الأخصائيين",
+    "popularEyebrow": "علاجات شائعة",
+    "popularTitle": "من هنا تبدأ زيارات كثيرين",
+    "offersEyebrow": "العروض",
+    "offersTitle": "العروض الحالية",
+    "offersSub": "اسأل الفريق عن العروض المتاحة اليوم."
+  },
+  "areas": [
+    {
+      "title": "علاجات الوجه",
+      "blurb": "جلسات للوجه وتقشير وبلازما غنية بالصفائح وعلاجات للبشرة.",
+      "intro": "جلسات الوجه ومشكلات البشرة وشدّ الوجه دون جراحة، من العناية المريحة إلى العلاجات التصحيحية.",
+      "groups": [
+        {
+          "name": "علاجات الوجه",
+          "items": [
+            "فيشل استرخائي",
+            "فيشل أوكسيجينيو",
+            "هيدرا فيشل",
+            "علاج حب الشباب",
+            "علاج ندبات حب الشباب",
+            "علاج البلازما الغنية بالصفائح (PRP)",
+            "إزالة الزوائد الجلدية",
+            "شدّ ورفع الوجه",
+            "علاج الكاربوكسي",
+            "الميزوثيرابي",
+            "تقشير البشرة الدقيق (ميكرودرمابريشن)",
+            "علاج الوردية",
+            "التقشير الكيميائي للبشرة",
+            "علاج تحفيز الكولاجين"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "علاجات الجسم",
+      "blurb": "شدّ وتناسق للجسم دون جراحة.",
+      "intro": "نحت وشدّ للجسم دون جراحة.",
+      "groups": [
+        {
+          "name": "علاجات الجسم",
+          "items": [
+            "شدّ وتناسق الجسم"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "علاج الليزر",
+      "blurb": "إزالة الشعر بالليزر والتصبغات وإزالة الوشم وتجديد البشرة.",
+      "intro": "عناية بالليزر للبشرة والشعر والتصبغات، للوجه والجسم.",
+      "groups": [
+        {
+          "name": "علاج الليزر",
+          "items": [
+            "تحديد اللحية بالليزر",
+            "علاج الكلف والتصبغات",
+            "إزالة الدوالي العنكبوتية",
+            "تفتيح الشعر وإزالته بالليزر",
+            "علاج حب الشباب (بالليزر)",
+            "إزالة الوشم بالليزر",
+            "تجديد الوجه والجسم بالليزر",
+            "إزالة شعر الوجه والجسم بالليزر",
+            "إزالة الشعر الأبيض"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "علاجات الشعر",
+      "blurb": "علاجات تساقط الشعر والعناية بفروة الرأس واستعادة اللحية.",
+      "intro": "علاجات لتساقط الشعر وصحة فروة الرأس واللحية والتصبغ.",
+      "groups": [
+        {
+          "name": "علاجات الشعر",
+          "items": [
+            "علاج الكاربوكسي لفروة الرأس",
+            "الميزوثيرابي لتساقط الشعر",
+            "البلازما الغنية بالصفائح لتساقط الشعر",
+            "استعادة اللحية",
+            "التصبغ الشعري لفروة الرأس"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "جراحات التجميل",
+      "blurb": "إجراءات جراحية للوجه والجسم والثدي.",
+      "intro": "إجراءات جراحية للوجه والجسم والثدي، تُخطَّط بعد الاستشارة.",
+      "groups": [
+        {
+          "name": "الوجه",
+          "items": [
+            "تجميل الأنف",
+            "علاج إعادة تسطيح البشرة بالليزر",
+            "تجميل الجفون",
+            "جراحة شدّ الوجه",
+            "رفع الحاجب والجبهة",
+            "زراعة حشوات الوجه",
+            "تكبير الشفاه",
+            "إصلاح شحمة الأذن",
+            "ثقب الأذن",
+            "صنع الغمّازات",
+            "الشدّ بالخيوط",
+            "العلاج بالخلايا الجذعية"
+          ]
+        },
+        {
+          "name": "الجسم",
+          "items": [
+            "شفط الدهون بتقنية فيزر",
+            "شدّ البطن",
+            "شفط الدهون",
+            "جراحات ما بعد فقدان الوزن الكبير",
+            "نحت الجسم",
+            "شدّ الذراعين",
+            "شدّ الجسم",
+            "شدّ الأرداف / الفخذين"
+          ]
+        },
+        {
+          "name": "الثدي",
+          "items": [
+            "تكبير الثدي",
+            "تصغير الثدي",
+            "علاج التثدي عند الرجال",
+            "رفع الثدي"
+          ]
+        },
+        {
+          "name": "إجراءات أخرى",
+          "items": [
+            "زراعة الشعر",
+            "جراحة توسيع الأنسجة",
+            "جي بلازما (رينوفيون)"
+          ]
+        }
+      ]
+    }
+  ],
+  "tourism": {
+    "cardTitle": "السياحة العلاجية",
+    "cardCount": "للمرضى القادمين من الخارج",
+    "cardText": "خطّط لعلاجك أثناء زيارتك من الخارج.",
+    "pageTitle": "السياحة العلاجية",
+    "eyebrow": "للمرضى القادمين من الخارج",
+    "heading": "علاج مخطَّط حول رحلتك",
+    "text": "أرسل العلاج الذي يهمّك وتواريخ سفرك وأي أسئلة. وسيردّ عليك الفريق بتفاصيل الزيارة.",
+    "btn1": "أرسل استفسارًا",
+    "btn2": "عرض جميع العلاجات",
+    "steps": [
+      {
+        "title": "أخبرنا بما تحتاجه",
+        "text": "اختر علاجًا من أي قسم وأرسل استفسارك."
+      },
+      {
+        "title": "شاركنا مواعيدك",
+        "text": "أخبرنا متى يمكنك السفر لنرتّب الزيارة وفق وقتك."
+      },
+      {
+        "title": "قابل أخصائيك",
+        "text": "يؤكد لك الأخصائي الخطة ويجيب عن أسئلتك شخصيًا."
+      }
+    ]
+  },
+  "featured": [
+    {
+      "name": "هيدرا فيشل",
+      "label": "الوجه"
+    },
+    {
+      "name": "فيشل استرخائي",
+      "label": "الوجه"
+    },
+    {
+      "name": "إزالة شعر الوجه والجسم بالليزر",
+      "label": "الليزر"
+    },
+    {
+      "name": "نحت الجسم",
+      "label": "جراحات التجميل"
+    },
+    {
+      "name": "زراعة الشعر",
+      "label": "جراحات التجميل"
+    }
+  ],
+  "offersEmpty": "لا توجد عروض حاليًا. تواصل معنا للاستفسار عن الأسعار والباقات الحالية.",
+  "offerBtn": "اسأل عن هذا العرض",
+  "reviews": {
+    "eyebrow": "آراء المرضى",
+    "title": "ماذا يقول مرضانا",
+    "linkText": "اقرأ المزيد من التقييمات على Google"
+  },
+  "specialistsPage": {
+    "eyebrow": "الفريق",
+    "title": "من يخطّط لعلاجك وينفّذه"
+  },
+  "about": {
+    "eyebrow": "من نحن",
+    "title": "عيادة تجميل وليزر",
+    "lead": "تقدّم بلوم رعاية تجميلية وجراحية في خمسة أقسام: علاجات الوجه، وعلاجات الجسم، والليزر، والشعر، وجراحات التجميل.",
+    "text": "يبدأ كل مريض باستشارة، ليُختار العلاج المناسب للشخص وللحالة."
+  },
+  "gallery": {
+    "resultsEyebrow": "النتائج",
+    "resultsTitle": "قبل وبعد",
+    "resultsSub": "نعرض نتائج المرضى بموافقتهم.",
+    "clinicEyebrow": "العيادة",
+    "clinicTitle": "داخل بلوم",
+    "tiles": [
+      {
+        "caption": "منتجات العناية بالبشرة"
+      },
+      {
+        "caption": "غرفة العلاج"
+      },
+      {
+        "caption": "ردهة العيادة"
+      },
+      {
+        "caption": "مكتب الاستشارات"
+      },
+      {
+        "caption": "الاستقبال"
+      },
+      {
+        "caption": "هيدرا فيشل"
+      }
+    ]
+  }
+}</script>
+<script>
+(function(){
+  var C=null; /* site content for the current language (English merged with Arabic) */
+  var E=null,A=null,L='en',toEn={};
+  var DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  var UI={
+    en:{home:'Home',services:'Services',allservices:'All services',gallery:'Gallery',promotions:'Promotions',aboutus:'About us',aboutbloom:'About Bloom',specialists:'Our Specialists',directors:'Our Directors',contact:'Contact us',ourservices:'Our Services',
+      phone:'Phone',hours:'Hours',email:'Email',address:'Address',openhours:'Opening hours',daily:'Daily',closed:'Closed',am:'AM',pm:'PM',
+      yourname:'Your name',treatment:'Treatment',general:'General enquiry',specialist:'Specialist',nopref:'No preference',when:'Preferred day or time',whenph:'e.g. weekday mornings',anything:'Anything else',prepare:'Prepare my message',copy:'Copy message',
+      formnote:'This form does not send anything. Copy the message and send it to the clinic by phone or email.',copied:'Copied',presscopy:'Press copy on your device',
+      m_hello:'Hello Bloom Clinic, I would like to book a consultation',m_about:' about ',m_name:'Name: ',m_phone:'Phone: ',m_spec:'Specialist: ',m_time:'Preferred time: ',m_notes:'Notes: ',
+      treatments:' treatments',explore:'Explore service →',from:' from ',greviews:' Google reviews',greview:'Google review',featured:'Featured',offer:'Offer',
+      book:'Book an appointment',viewdetails:'View details →',enquire:'Enquire →',enquire2:'Enquire',selectnote:'Select a treatment to start an enquiry. Suitability and results are discussed at your consultation.',
+      reqconsult:'Request a consultation',all:'All ',willcontact:'Our team will contact you about availability.',reviewedby:'Clinically reviewed by ',appointment:'Appointment',apptsub:'Choose a treatment, add your details and copy the message to send to the clinic.',
+      director:'Director',ourspecialists:'Our specialists',ourdirectors:'Our directors',getintouch:'Get in touch',bookconsult:'Book a consultation',
+      quicklinks:'Quick links',fservices:'Services',fcontact:'Contact',placeholder:'Photo placeholder',other:'العربية',arrow:'→',
+      d_Monday:'Monday',d_Tuesday:'Tuesday',d_Wednesday:'Wednesday',d_Thursday:'Thursday',d_Friday:'Friday',d_Saturday:'Saturday',d_Sunday:'Sunday',
+      s_Monday:'Mon',s_Tuesday:'Tue',s_Wednesday:'Wed',s_Thursday:'Thu',s_Friday:'Fri',s_Saturday:'Sat',s_Sunday:'Sun'},
+    ar:{home:'الرئيسية',services:'الخدمات',allservices:'جميع الخدمات',gallery:'المعرض',promotions:'العروض',aboutus:'من نحن',aboutbloom:'عن بلوم',specialists:'أخصائيونا',directors:'المديرون',contact:'اتصل بنا',ourservices:'خدماتنا',
+      phone:'الهاتف',hours:'ساعات العمل',email:'البريد الإلكتروني',address:'العنوان',openhours:'ساعات العمل',daily:'يوميًا',closed:'مغلق',am:'ص',pm:'م',
+      yourname:'الاسم',treatment:'العلاج',general:'استفسار عام',specialist:'الأخصائي',nopref:'بدون تفضيل',when:'اليوم أو الوقت المفضل',whenph:'مثال: صباح أيام الأسبوع',anything:'أي ملاحظات أخرى',prepare:'جهّز رسالتي',copy:'انسخ الرسالة',
+      formnote:'هذا النموذج لا يرسل شيئًا. انسخ الرسالة وأرسلها إلى العيادة عبر الهاتف أو البريد الإلكتروني.',copied:'تم النسخ',presscopy:'استخدم أمر النسخ في جهازك',
+      m_hello:'مرحبًا عيادة بلوم، أودّ حجز استشارة',m_about:' بخصوص ',m_name:'الاسم: ',m_phone:'الهاتف: ',m_spec:'الأخصائي: ',m_time:'الوقت المفضل: ',m_notes:'ملاحظات: ',
+      treatments:' علاجًا',explore:'استكشف الخدمة ←',from:' من ',greviews:' تقييم على Google',greview:'تقييم على Google',featured:'مميّز',offer:'عرض',
+      book:'احجز موعدًا',viewdetails:'عرض التفاصيل ←',enquire:'استفسر ←',enquire2:'استفسر',selectnote:'اختر علاجًا لبدء الاستفسار. تُناقَش مدى الملاءمة والنتائج خلال استشارتك.',
+      reqconsult:'اطلب استشارة',all:'جميع ',willcontact:'سيتواصل معك فريقنا بخصوص المواعيد المتاحة.',reviewedby:'روجع طبيًا بواسطة ',appointment:'الموعد',apptsub:'اختر العلاج وأضف بياناتك وانسخ الرسالة لإرسالها إلى العيادة.',
+      director:'المدير',ourspecialists:'أخصائيونا',ourdirectors:'المديرون',getintouch:'تواصل معنا',bookconsult:'احجز استشارة',
+      quicklinks:'روابط سريعة',fservices:'الخدمات',fcontact:'التواصل',placeholder:'صورة مؤقتة',other:'English',arrow:'←',
+      d_Monday:'الاثنين',d_Tuesday:'الثلاثاء',d_Wednesday:'الأربعاء',d_Thursday:'الخميس',d_Friday:'الجمعة',d_Saturday:'السبت',d_Sunday:'الأحد',
+      s_Monday:'الاثنين',s_Tuesday:'الثلاثاء',s_Wednesday:'الأربعاء',s_Thursday:'الخميس',s_Friday:'الجمعة',s_Saturday:'السبت',s_Sunday:'الأحد'}
+  };
+  function T(k){return (UI[L]&&UI[L][k])||UI.en[k]||k}
+  /* deep-merge Arabic over English: an empty or missing Arabic value falls back to English */
+  function merge(en,ar){
+    if(ar===undefined||ar===null)return en;
+    if(Array.isArray(en)){return en.map(function(v,i){return merge(v,Array.isArray(ar)?ar[i]:undefined)})}
+    if(en&&typeof en==='object'){var o={};for(var k in en)o[k]=merge(en[k],(ar&&typeof ar==='object')?ar[k]:undefined);return o}
+    if(typeof en==='string')return (typeof ar==='string'&&ar.trim()!=='')?ar:en;
+    return en;
+  }
+
+  var ART={
+    face:'<ellipse cx="100" cy="102" rx="46" ry="60"/><path d="M80 94q7-7 14 0M106 94q7-7 14 0M88 130q12 10 24 0"/><path d="M158 40v18M149 49h18M44 150v12M38 156h12"/>',
+    body:'<circle cx="100" cy="42" r="16"/><path d="M68 92C84 76 116 76 132 92C126 122 120 138 124 176M68 92C74 122 80 138 76 176"/>',
+    laser:'<circle cx="100" cy="100" r="26"/><path d="M100 28v28M100 144v28M28 100h28M144 100h28M49 49l20 20M131 131l20 20M151 49l-20 20M69 131l-20 20"/>',
+    hair:'<path d="M58 172C38 122 78 92 58 30M100 172C80 122 120 92 100 30M142 172C122 122 162 92 142 30"/>',
+    plus:'<circle cx="100" cy="100" r="62"/><path d="M100 66v68M66 100h68"/>',
+    globe:'<circle cx="100" cy="100" r="62"/><ellipse cx="100" cy="100" rx="26" ry="62"/><path d="M38 100h124M48 70h104M48 130h104"/>',
+    person:'<circle cx="100" cy="76" r="30"/><path d="M42 178c4-42 30-60 58-60s54 18 58 60"/>',
+    flower:'<path d="M100 30l30 30-30 30-30-30zM100 110l30 30-30 30-30-30zM30 100l30-30 30 30-30 30zM110 100l30-30 30 30-30 30z"/>'
+  };
+  var CAT_ICON={
+    care:'<path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/>',
+    team:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c.6-4 3-6 6-6s5.4 2 6 6M15.5 14.2c3 0 4.8 1.8 5.5 5.3"/>',
+    areas:'<rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><rect x="13" y="13" width="7" height="7" rx="2"/>'
+  };
+  var FOCUS={center:'50% 50%',upper:'50% 30%',top:'50% 15%',lower:'50% 70%'};
+
+  /* ---------- helpers ---------- */
+  function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+  function safeUrl(u){u=String(u||'').trim();return /^(#|https?:\/\/|tel:|mailto:|\/|[\w.\-\/]+$)/i.test(u)?u:'#'}
+  /* tiny rich text: **bold** and [label](link) */
+  function rich(s){
+    return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,function(m,t,u){return '<a href="'+esc(safeUrl(u.replace(/&amp;/g,'&')))+'">'+t+'</a>'});
+  }
+  function areas(){return C.areas||[]}
+  function area(key){for(var i=0;i<areas().length;i++)if(areas()[i].key===key)return areas()[i];return null}
+  function count(a){return a.groups.reduce(function(n,g){return n+g.items.length},0)}
+  function total(){return areas().reduce(function(n,a){return n+count(a)},0)}
+  function treatBy(slug){var t=C.treatments||[];for(var i=0;i<t.length;i++)if(t[i].slug===slug)return t[i];return null}
+  function slugFor(name){var en=toEn[name]||name,t=E.treatments||[];for(var i=0;i<t.length;i++)if(t[i].name===en)return t[i].slug;return ''}
+  function ph(src,art,label,ratio,cls,focus){
+    if(src)return '<div class="ph '+(cls||'')+'" style="aspect-ratio:'+ratio+'"><img src="'+esc(src)+'" alt="'+esc(label)+'" style="object-position:'+(FOCUS[focus]||FOCUS.center)+'" loading="lazy"></div>';
+    return '<div class="ph '+(cls||'')+'" style="aspect-ratio:'+ratio+'" role="img" aria-label="'+esc(label)+'"><svg viewBox="0 0 200 200" aria-hidden="true">'+(ART[art]||ART.flower)+'</svg><span class="phtag">'+esc(T('placeholder'))+'</span></div>';
+  }
+  var CARET='<svg class="caret" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 3.5l3 3 3-3"/></svg>';
+  var selected='';
+
+  /* opening hours */
+  function t12(t){var p=String(t).split(':'),h=+p[0],m=+p[1]||0,s=h>=12?'PM':'AM';h=h%12||12;return {t:h+(m?':'+(m<10?'0':'')+m:''),s:s}}
+  function range(h){
+    if(h.closed)return T('closed');
+    var a=t12(h.open),b=t12(h.close);
+    var sa=a.s==='AM'?T('am'):T('pm'),sb=b.s==='AM'?T('am'):T('pm');return a.s===b.s?a.t+'–'+b.t+' '+sb:a.t+' '+sa+'–'+b.t+' '+sb;
+  }
+  function hoursSummary(){
+    var H=C.site.hours||[],groups={},order=[];
+    H.forEach(function(h){var r=range(h);if(!groups[r]){groups[r]=[];order.push(r)}groups[r].push(T('s_'+h.day))});
+    if(!order.length)return '';
+    order.sort(function(a,b){return groups[b].length-groups[a].length});
+    var main=order[0];
+    if(order.length===1)return T('daily')+' '+main;
+    return T('daily')+' '+main+' ('+order.slice(1).map(function(r){return groups[r].join(', ')+' '+r}).join(', ')+')';
+  }
+
+  /* ---------- SEO ---------- */
+  function seo(t){
+    var S=C.site,title=t?(t.seoTitle||t.name+' in Dubai | '+S.name):S.seoTitle,desc=t?(t.seoDesc||t.name+' at '+S.name+'. See what to expect and how to request a consultation.'):S.seoDesc;
+    document.title=title||S.name;
+    var m=document.querySelector('meta[name="description"]');
+    if(!m){m=document.createElement('meta');m.name='description';document.head.appendChild(m)}
+    m.content=desc||'';
+    var old=document.getElementById('ld');if(old)old.remove();
+    var byHours={};
+    (S.hours||[]).forEach(function(h){if(h.closed)return;var k=h.open+'-'+h.close;(byHours[k]=byHours[k]||{o:h.open,c:h.close,d:[]}).d.push(h.day)});
+    var spec=Object.keys(byHours).map(function(k){var x=byHours[k];return {'@type':'OpeningHoursSpecification',dayOfWeek:x.d,opens:x.o,closes:x.c}});
+    var graph=[{'@type':'MedicalBusiness',name:S.name,telephone:S.phoneTel,email:S.email,address:{'@type':'PostalAddress',streetAddress:S.streetAddress,addressLocality:S.locality,addressCountry:'AE'},openingHoursSpecification:spec}];
+    if(t){
+      var a=area(t.area);
+      graph.push({'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Home'},{'@type':'ListItem',position:2,name:'Our Services'},{'@type':'ListItem',position:3,name:a?a.title:''},{'@type':'ListItem',position:4,name:t.name}]});
+      if((t.faqs||[]).length)graph.push({'@type':'FAQPage',mainEntity:t.faqs.map(function(f){return {'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}})});
+    }
+    var sc=document.createElement('script');sc.type='application/ld+json';sc.id='ld';sc.textContent=JSON.stringify({'@context':'https://schema.org','@graph':graph});document.head.appendChild(sc);
+  }
+
+  /* ---------- navigation ---------- */
+  function NAV(){
+    return [
+      {label:T('home'),h:'home'},
+      {label:T('services'),h:'services',kids:[{label:T('allservices'),h:'services'}].concat(areas().map(function(a){return{label:a.title,h:'services-'+a.key}}))},
+      {label:C.tourism.cardTitle||'Medical Tourism',h:'medical-tourism'},
+      {label:T('gallery'),h:'gallery'},
+      {label:T('promotions'),h:'promotions'},
+      {label:T('aboutus'),h:'about',kids:[{label:T('aboutbloom'),h:'about'},{label:T('specialists'),h:'specialists'},{label:T('directors'),h:'directors'}]},
+      {label:T('contact'),h:'contact',cta:true}
+    ];
+  }
+  function buildNav(cur){
+    document.getElementById('nav').innerHTML=NAV().map(function(n){
+      var active=n.kids?n.kids.some(function(k){return k.h===cur}):n.h===cur;
+      if(n.kids)return '<li class="'+(active?'active':'')+'" data-dd><button class="top" aria-expanded="false" aria-haspopup="true">'+esc(n.label)+CARET+'</button><ul class="sub">'+n.kids.map(function(k){return '<li><a href="#'+k.h+'">'+esc(k.label)+'</a></li>'}).join('')+'</ul></li>';
+      return '<li class="'+(active&&!n.cta?'active':'')+'"><a '+(n.cta?'class="cta" ':'')+'href="#'+n.h+'">'+esc(n.label)+'</a></li>';
+    }).join('');
+  }
+
+  /* ---------- shared blocks ---------- */
+  function banner(title,trail){
+    return '<div class="banner"><div class="wrap"><div class="crumbs"><a href="#home">'+esc(T('home'))+'</a>'+trail.map(function(t){return ' / '+(t.h?'<a href="#'+t.h+'">'+esc(t.l)+'</a>':esc(t.l))}).join('')+'</div><h1>'+esc(title)+'</h1></div></div>';
+  }
+  function head(eyebrow,title,sub,left){
+    return '<div class="sec-head'+(left?' left':'')+'"><span class="eyebrow">'+esc(eyebrow)+'</span><h2>'+esc(title)+'</h2>'+(sub?'<p>'+esc(sub)+'</p>':'')+'</div>';
+  }
+  function treatOptions(){
+    return '<option value="">'+esc(T('general'))+'</option>'+areas().map(function(a){
+      return '<optgroup label="'+esc(a.title)+'">'+a.groups.map(function(g){return g.items.map(function(i){return '<option'+((i===selected||toEn[i]===selected)?' selected':'')+'>'+esc(i)+'</option>'}).join('')}).join('')+'</optgroup>'}).join('');
+  }
+  function apptForm(){
+    return '<form id="enq" novalidate><div class="two"><label for="f-name">'+esc(T('yourname'))+'<input id="f-name" autocomplete="name"></label><label for="f-phone">'+esc(T('phone'))+'<input id="f-phone" autocomplete="tel" inputmode="tel" dir="ltr"></label></div>'+
+      '<label for="f-treat">'+esc(T('treatment'))+'<select id="f-treat">'+treatOptions()+'</select></label>'+
+      '<div class="two"><label for="f-spec">'+esc(T('specialist'))+'<select id="f-spec"><option value="">'+esc(T('nopref'))+'</option>'+(C.team||[]).map(function(t){return '<option>'+esc(t.name)+'</option>'}).join('')+'</select></label><label for="f-when">'+esc(T('when'))+'<input id="f-when" placeholder="'+esc(T('whenph'))+'"></label></div>'+
+      '<label for="f-msg">'+esc(T('anything'))+'<textarea id="f-msg"></textarea></label>'+
+      '<button class="btn primary" type="submit" style="justify-self:start">'+esc(T('prepare'))+'</button></form>'+
+      '<div class="draft" id="draft" aria-live="polite"><pre id="draft-text"></pre><div class="row"><button class="btn ghost" type="button" id="copy">'+esc(T('copy'))+'</button></div><p class="note">'+esc(T('formnote'))+'</p></div>';
+  }
+  function contactDetails(){
+    var S=C.site;
+    return '<dl class="details"><div><dt>'+esc(T('phone'))+'</dt><dd><a href="tel:'+esc(S.phoneTel)+'">'+esc(S.phone)+'</a></dd></div><div><dt>'+esc(T('email'))+'</dt><dd><a href="mailto:'+esc(S.email)+'">'+esc(S.email)+'</a></dd></div><div><dt>'+esc(T('address'))+'</dt><dd>'+esc(S.address)+'</dd></div><div><dt>'+esc(T('openhours'))+'</dt><dd><table class="hours">'+(S.hours||[]).map(function(h){return '<tr><th scope="row">'+esc(T('d_'+h.day))+'</th><td>'+esc(range(h))+'</td></tr>'}).join('')+'</table></dd></div></dl>';
+  }
+  function apptSection(eyebrow,title,sub,form){
+    return '<section class="appt"><div class="wrap appt-grid"><div>'+head(eyebrow,title,sub,true)+contactDetails()+'</div><div class="box">'+(form||apptForm())+'</div></div></section>';
+  }
+  function ticker(){
+    var items=[];areas().forEach(function(a){a.groups.forEach(function(g){items=items.concat(g.items.slice(0,4))})});
+    items=items.slice(0,18);
+    var one=items.map(function(i){return '<span>'+esc(i)+'</span>'}).join('');
+    return '<div class="ticker" aria-hidden="true"><div class="track">'+one+one+'</div></div>';
+  }
+  function team(){
+    return '<div class="team">'+(C.team||[]).map(function(t){return '<div class="member">'+ph(t.photo,'person',t.name,'4/5')+'<div><h3>'+esc(t.name)+'</h3>'+(t.role?'<div class="role">'+esc(t.role)+'</div>':'')+(t.bio?'<p class="role" style="margin-top:6px">'+esc(t.bio)+'</p>':'')+'</div></div>'}).join('')+'</div>';
+  }
+  function areaCards(){
+    return areas().map(function(a){return '<a class="card" href="#services-'+esc(a.key)+'">'+ph(a.photo,a.art,a.title,'4/3',null,a.focus)+'<h3>'+esc(a.title)+'</h3><span class="count">'+count(a)+esc(T('treatments'))+'</span><p>'+esc(a.blurb)+'</p><span class="more">'+esc(T('explore'))+'</span></a>'}).join('')+
+      '<a class="card" href="#medical-tourism">'+ph(C.tourism.photo,'globe',C.tourism.cardTitle,'4/3',null,C.tourism.focus)+'<h3>'+esc(C.tourism.cardTitle)+'</h3><span class="count">'+esc(C.tourism.cardCount)+'</span><p>'+esc(C.tourism.cardText)+'</p><span class="more">'+esc(T('explore'))+'</span></a>';
+  }
+  function offers(){
+    var o=C.offers||[];
+    if(!o.length)return '<p class="lead" style="margin-inline:auto;text-align:center">'+esc(C.offersEmpty)+'</p><div class="row" style="justify-content:center;margin-top:22px"><a class="btn primary" href="#contact">'+esc(T('contact'))+'</a></div>';
+    return '<div class="offers">'+o.map(function(x,i){var f=x.featured||(i===0&&!o.some(function(y){return y.featured}));return '<div class="offer'+(f?' featured':'')+'"><span class="pill">'+esc(x.tag||(f?T('featured'):T('offer')))+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.text)+'</p><a class="btn '+(f?'light':'ghost')+'" href="#contact" style="justify-self:start">'+esc(C.offerBtn||'Ask about this offer')+'</a></div>'}).join('')+'</div>';
+  }
+  function stars(n){var s='';for(var i=0;i<5;i++)s+='<svg viewBox="0 0 20 20" aria-hidden="true" class="'+(i<n?'on':'off')+'"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg>';return '<span class="stars" role="img" aria-label="'+n+' out of 5 stars">'+s+'</span>'}
+  function reviews(){
+    var R=C.reviews||{},it=(R.items||[]).filter(function(r){return r.text&&r.name});
+    if(!it.length)return '';
+    return '<section style="padding-top:0"><div class="wrap">'+head(R.eyebrow||'Patient reviews',R.title||'What our patients say')+
+      ((R.rating||R.count)?'<p class="revsum">'+stars(5)+'<span><b>'+esc(R.rating)+'</b>'+(R.count?T('from')+esc(R.count)+T('greviews'):'')+'</span></p>':'')+
+      '<div class="revs">'+it.map(function(r){return '<figure class="rev">'+stars(r.stars||5)+'<blockquote>'+esc(r.text)+'</blockquote><figcaption><b>'+esc(r.name)+'</b><span>'+esc(r.date||'')+(r.date?' · ':'')+esc(T('greview'))+'</span></figcaption></figure>'}).join('')+'</div>'+
+      (R.link?'<div class="row" style="justify-content:center;margin-top:30px"><a class="btn ghost" href="'+esc(safeUrl(R.link))+'" target="_blank" rel="noopener">'+esc(R.linkText||'Read more reviews on Google')+'</a></div>':'')+'</div></section>';
+  }
+
+  /* ---------- views ---------- */
+  var V={};
+  V.home=function(){
+    var H=C.home;
+    return '<section class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">'+esc(H.eyebrow)+'</span>'+
+      '<h1>'+esc(H.title)+'</h1>'+
+      '<p class="lead">'+esc(H.text)+'</p>'+
+      '<div class="row"><a class="btn primary" href="#contact">'+esc(H.btn1)+'</a><a class="btn ghost" href="#services">'+esc(H.btn2)+'</a></div></div>'+
+      '<div class="hero-pic">'+ph(H.photo,'face','Bloom clinic','4/5','arch',H.focus)+'<div class="float a"><b>'+total()+'</b><span>'+esc(H.floatA)+'</span></div><div class="float b"><b>'+(C.team||[]).length+'</b><span>'+esc(H.floatB)+'</span></div></div></div></section>'+
+    '<section><div class="wrap">'+head(H.servicesEyebrow,H.servicesTitle,H.servicesSub)+'<div class="cards">'+areaCards()+'</div></div></section>'+
+    ticker()+
+    '<section><div class="wrap"><div class="split"><div>'+head(H.aboutEyebrow,H.aboutTitle,'',true)+
+      '<p class="lead">'+esc(H.aboutText)+'</p>'+
+      '<ul class="checks">'+(H.aboutChecks||[]).map(function(c){return '<li>'+esc(c)+'</li>'}).join('')+'</ul>'+
+      '<div class="row" style="margin-top:28px"><a class="btn primary" href="#about">'+esc(H.aboutBtn)+'</a></div></div>'+ph(H.aboutPhoto,'flower','The clinic','5/4',null,H.aboutFocus)+'</div>'+
+      '<div class="feats">'+(H.features||[]).map(function(f){return '<div class="feat"><div class="ic"><svg viewBox="0 0 24 24">'+(CAT_ICON[f.icon]||CAT_ICON.care)+'</svg></div><h3>'+esc(f.title)+'</h3><p>'+esc(f.text)+'</p></div>'}).join('')+'</div></div></section>'+
+    apptSection(H.apptEyebrow,H.apptTitle,H.apptSub)+
+    '<section><div class="wrap">'+head(H.teamEyebrow,H.teamTitle)+team()+'<div class="row" style="justify-content:center;margin-top:32px"><a class="btn ghost" href="#specialists">'+esc(H.teamBtn)+'</a></div></div></section>'+
+    '<section style="padding-top:0"><div class="wrap">'+head(H.popularEyebrow,H.popularTitle)+
+      '<div class="tall">'+(C.featured||[]).map(function(f){var sl=slugFor(f.name);return (sl?'<a class="tcard" style="display:block;text-decoration:none;color:inherit" href="#treatment-'+esc(sl)+'">':'<button class="tcard" style="all:unset;display:block;cursor:pointer;position:relative" type="button" data-treat="'+esc(f.name)+'">')+ph(f.photo,'face',f.name,'3/4',null,f.focus)+'<span class="meta"><small>'+esc(f.label)+'</small><b>'+esc(f.name)+'</b></span>'+(sl?'</a>':'</button>')}).join('')+'</div></div></section>'+
+    reviews()+
+    '<section style="background:var(--tint)"><div class="wrap">'+head(H.offersEyebrow,H.offersTitle,H.offersSub)+offers()+'</div></section>';
+  };
+
+  V.servicearea=function(key){
+    var s=area(key);
+    return banner(s.title,[{l:T('services'),h:'services'},{l:s.title}])+
+      '<section><div class="wrap"><nav class="tabs" aria-label="Service areas"><a class="tab" href="#services">'+esc(T('allservices'))+'</a>'+areas().map(function(a){return '<a class="tab" href="#services-'+esc(a.key)+'"'+(a.key===key?' aria-current="page"':'')+'>'+esc(a.title)+'</a>'}).join('')+'</nav>'+
+      '<div class="split" style="margin-top:34px"><div><h2>'+esc(s.title)+'</h2><p class="lead" style="margin-top:14px">'+esc(s.intro)+'</p><div class="row" style="margin-top:22px"><a class="btn primary" href="#contact">'+esc(T('book'))+'</a></div></div>'+ph(s.photo,s.art,s.title,'16/10',null,s.focus)+'</div>'+
+      s.groups.map(function(g){return '<div class="group">'+(s.groups.length>1?'<h3>'+esc(g.name)+' <span>'+g.items.length+'</span></h3>':'<h3>'+g.items.length+esc(T('treatments'))+'</h3>')+
+        '<ul class="list">'+g.items.map(function(it){var sl=slugFor(it);return (sl?'<li><a class="rowlink" href="#treatment-'+esc(sl)+'"><span>'+esc(it)+'</span><span class="arrow">'+esc(T('viewdetails'))+'</span></a></li>':'<li><button type="button" data-treat="'+esc(it)+'"><span>'+esc(it)+'</span><span class="arrow">'+esc(T('enquire'))+'</span></button></li>')}).join('')+'</ul></div>'}).join('')+
+      '<p class="note" style="margin-top:28px">'+esc(T('selectnote'))+'</p></div></section>';
+  };
+
+  V.treatment=function(slug){
+    var t=treatBy(slug),a=area(t.area)||{title:'Services',key:t.area},prev=selected;selected=t.name;var form=apptForm();selected=prev;
+    var side=(t.related||[]).map(function(n){
+      var sl=slugFor(n);
+      return '<li>'+(sl?'<a href="#treatment-'+esc(sl)+'"'+(sl===slug?' aria-current="page"':'')+'><span>'+esc(n)+'</span><span aria-hidden="true">'+esc(T('arrow'))+'</span></a>':'<button type="button" data-treat="'+esc(n)+'"><span>'+esc(n)+'</span><span aria-hidden="true">'+esc(T('enquire2'))+'</span></button>')+'</li>'}).join('');
+    function list(items,cls){return '<ul class="checks'+(cls?' '+cls:'')+'">'+(items||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul>'}
+    return banner(t.pageTitle||t.name+' in Dubai',[{l:T('services'),h:'services'},{l:a.title,h:'services-'+a.key},{l:t.name}])+
+    '<section><div class="wrap detail"><article class="prose">'+
+      ph(t.heroPhoto,a.art||'face',t.name+' treatment at Bloom Clinic Dubai','16/9',null,t.heroFocus)+
+      '<h2>'+esc(t.heading||t.name)+'</h2>'+
+      (t.paragraphs||[]).map(function(p){return '<p>'+rich(p)+'</p>'}).join('')+
+      ((t.steps||[]).length?'<h2>'+esc(t.stepsTitle)+'</h2><div class="dsteps">'+t.steps.map(function(x,i){return '<div class="dstep"><span class="num">0'+(i+1)+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.text)+'</p></div>'}).join('')+'</div>'+(t.stepsNote?'<p class="note">'+esc(t.stepsNote)+'</p>':''):'')+
+      ((t.photoB||t.photoC)?'<div class="pair">'+ph(t.photoB,'face',t.name+' at Bloom Clinic Dubai','4/3')+ph(t.photoC,'face','Skincare products used at Bloom Clinic Dubai','4/3')+'</div>':'')+
+      ((t.suit||[]).length?'<h2>'+esc(t.suitTitle)+'</h2>'+list(t.suit):'')+
+      (((t.risks||[]).length||(t.prep||[]).length)?'<div class="cols2">'+((t.risks||[]).length?'<div class="panel"><h3>'+esc(t.risksTitle)+'</h3>'+list(t.risks,'dots')+(t.risksNote?'<p class="note">'+esc(t.risksNote)+'</p>':'')+'</div>':'')+
+      ((t.prep||[]).length?'<div class="panel"><h3>'+esc(t.prepTitle)+'</h3>'+list(t.prep)+'</div>':'')+'</div>':'')+
+      ((t.faqs||[]).length?'<h2>'+esc(t.faqTitle)+'</h2><div class="faq">'+t.faqs.map(function(f){return '<details><summary>'+esc(f.q)+'</summary><p>'+esc(f.a)+'</p></details>'}).join('')+'</div>':'')+
+      '<div class="box" style="display:grid;gap:14px"><h3>'+esc(t.ctaTitle||'Ready to talk about '+t.name+'?')+'</h3><p>'+esc(t.ctaText)+'</p><div class="row"><button class="btn primary" type="button" data-treat="'+esc(t.name)+'">'+esc(T('reqconsult'))+'</button><a class="btn ghost" href="#services-'+esc(a.key)+'">'+esc(T('all')+a.title.toLowerCase())+'</a></div></div>'+
+      (t.reviewedBy?'<p class="note">'+esc(T('reviewedby'))+esc(t.reviewedBy)+(t.reviewedOn?', '+esc(t.reviewedOn):'')+'.</p>':'')+
+    '</article>'+
+    '<aside class="side" aria-label="Related treatments">'+(side?'<div class="box"><h3>'+esc(t.relatedTitle)+'</h3><ul class="slist">'+side+'</ul><p style="margin-top:12px"><a class="more" href="#services-'+esc(a.key)+'">'+esc(T('all')+a.title.toLowerCase()+' '+T('arrow'))+'</a></p></div>':'')+
+      '<div class="box"><h3>'+esc(T('reqconsult'))+'</h3><p style="color:var(--muted);margin-bottom:14px">'+esc(T('willcontact'))+'</p><button class="btn primary" type="button" data-treat="'+esc(t.name)+'" style="width:100%;justify-content:center">'+esc(T('reqconsult'))+'</button><p style="margin-top:14px;font-weight:600"><a href="tel:'+esc(C.site.phoneTel)+'" style="text-decoration:none">'+esc(C.site.phone)+'</a></p></div></aside></div></section>'+
+    apptSection(T('appointment'),T('reqconsult'),T('apptsub'),form)+
+    '<section><div class="wrap">'+head(C.home.teamEyebrow,C.home.teamTitle)+team()+'</div></section>'+ticker();
+  };
+
+  V.services=function(){
+    return banner(T('ourservices'),[{l:T('ourservices')}])+
+      '<section><div class="wrap">'+head(C.home.servicesEyebrow,C.home.servicesTitle,C.home.servicesSub)+'<div class="cards">'+areaCards()+'</div></div></section>'+
+      apptSection(C.home.apptEyebrow,C.home.apptTitle,C.home.apptSub)+
+      '<section><div class="wrap">'+head(C.home.teamEyebrow,C.home.teamTitle)+team()+'</div></section>'+
+      ticker();
+  };
+
+  V['medical-tourism']=function(){
+    var T=C.tourism;
+    return banner(T.pageTitle,[{l:T.pageTitle}])+
+      '<section><div class="wrap"><div class="split"><div>'+head(T.eyebrow,T.heading,'',true)+'<p class="lead">'+esc(T.text)+'</p><div class="row" style="margin-top:26px"><a class="btn primary" href="#contact">'+esc(T.btn1)+'</a><a class="btn ghost" href="#services">'+esc(T.btn2)+'</a></div></div>'+ph(T.photo,'globe','Medical tourism','5/4',null,T.focus)+'</div>'+
+      '<div class="feats">'+(T.steps||[]).map(function(x){return '<div class="feat"><h3>'+esc(x.title)+'</h3><p>'+esc(x.text)+'</p></div>'}).join('')+'</div>'+
+      (T.note?'<p class="note" style="margin-top:24px">'+esc(T.note)+'</p>':'')+'</div></section>';
+  };
+
+  V.gallery=function(){
+    var G=C.gallery,art=['face','laser','hair'];
+    var pairs=(G.pairs||[]).filter(function(p){return p.before||p.after});
+    return banner(T('gallery'),[{l:T('gallery')}])+
+      '<section><div class="wrap">'+
+      (pairs.length?head(G.resultsEyebrow,G.resultsTitle,G.resultsSub)+'<div class="steps">'+pairs.map(function(p,i){return '<div class="box" style="display:grid;gap:12px"><h3>'+esc(p.title)+'</h3><div class="ba"><figure>'+ph(p.before,art[i%3],p.title+' before','3/4')+'<figcaption>Before</figcaption></figure><figure>'+ph(p.after,art[i%3],p.title+' after','3/4')+'<figcaption>After</figcaption></figure></div></div>'}).join('')+'</div><div style="height:52px"></div>':'')+
+      head(G.clinicEyebrow,G.clinicTitle)+
+      '<div class="tiles">'+(G.tiles||[]).map(function(t){return ph(t.photo,'flower',t.caption,'4/3')}).join('')+'</div></div></section>';
+  };
+
+  V.promotions=function(){
+    return banner(T('promotions'),[{l:T('promotions')}])+'<section><div class="wrap">'+head(C.home.offersEyebrow,C.home.offersTitle,C.home.offersSub)+offers()+'</div></section>';
+  };
+
+  V.about=function(){
+    var A=C.about;
+    return banner(T('aboutbloom'),[{l:T('aboutus')},{l:T('aboutbloom')}])+
+      '<section><div class="wrap"><div class="split">'+ph(A.photo,'flower','The clinic','5/4',null,A.focus)+'<div style="display:grid;gap:16px">'+head(A.eyebrow,A.title,'',true)+'<p class="lead" style="color:var(--ink)">'+esc(A.lead)+'</p>'+(A.text?'<p class="lead">'+esc(A.text)+'</p>':'')+'<div class="row"><a class="btn ghost" href="#specialists">'+esc(T('ourspecialists'))+'</a><a class="btn ghost" href="#directors">'+esc(T('ourdirectors'))+'</a></div></div></div></div></section>';
+  };
+
+  V.specialists=function(){
+    var P=C.specialistsPage;
+    return banner(T('specialists'),[{l:T('aboutus')},{l:T('specialists')}])+'<section><div class="wrap">'+head(P.eyebrow,P.title)+team()+'</div></section>';
+  };
+
+  V.directors=function(){
+    return banner(T('directors'),[{l:T('aboutus')},{l:T('directors')}])+
+      '<section><div class="wrap">'+(C.directors||[]).map(function(d){return '<div class="split" style="margin-bottom:40px"><div style="max-width:380px;width:100%">'+ph(d.photo,'person',d.name,'4/5')+'</div><div style="display:grid;gap:12px"><span class="eyebrow">'+esc(T('director'))+'</span><h2>'+esc(d.name)+'</h2>'+(d.role?'<p class="lead">'+esc(d.role)+'</p>':'')+(d.bio?'<p class="lead" style="color:var(--ink)">'+esc(d.bio)+'</p>':'')+'</div></div>'}).join('')+'</div></section>';
+  };
+
+  V.contact=function(){
+    return banner(T('contact'),[{l:T('contact')}])+apptSection(T('getintouch'),T('bookconsult'),T('apptsub'));
+  };
+
+  function chrome(){
+    var S=C.site;
+    document.getElementById('topbar').innerHTML='<span><b>'+esc(T('phone'))+':</b> <a href="tel:'+esc(S.phoneTel)+'">'+esc(S.phone)+'</a></span><span class="hide-s"><b>'+esc(T('hours'))+':</b> '+esc(hoursSummary())+'</span><span class="hide-s"><b>'+esc(T('email'))+':</b> <a href="mailto:'+esc(S.email)+'">'+esc(S.email)+'</a></span>';
+    document.getElementById('fcols').innerHTML=
+      '<div><img class="footer-logo" src="images/bloom-logo-white.png" alt="'+esc(S.name)+'" width="200" height="131"><p style="margin-top:14px;max-width:34ch">'+esc(S.footerText)+'</p></div>'+
+      '<div><h3>'+esc(T('quicklinks'))+'</h3><ul><li><a href="#home">'+esc(T('home'))+'</a></li><li><a href="#about">'+esc(T('aboutbloom'))+'</a></li><li><a href="#specialists">'+esc(T('specialists'))+'</a></li><li><a href="#gallery">'+esc(T('gallery'))+'</a></li><li><a href="#promotions">'+esc(T('promotions'))+'</a></li></ul></div>'+
+      '<div><h3>'+esc(T('fservices'))+'</h3><ul>'+areas().map(function(a){return '<li><a href="#services-'+esc(a.key)+'">'+esc(a.title)+'</a></li>'}).join('')+'<li><a href="#medical-tourism">'+esc(C.tourism.cardTitle)+'</a></li></ul></div>'+
+      '<div><h3>'+esc(T('fcontact'))+'</h3><ul><li>'+esc(T('phone'))+': <a href="tel:'+esc(S.phoneTel)+'">'+esc(S.phone)+'</a></li><li>'+esc(T('email'))+': <a href="mailto:'+esc(S.email)+'">'+esc(S.email)+'</a></li><li>'+esc(S.address)+'</li><li><a href="#contact">'+esc(T('book'))+'</a></li></ul></div>';
+    document.getElementById('base').textContent=S.copyright;
+  }
+
+  function route(){
+    if(!C)return;
+    var h=(location.hash||'#home').slice(1),view,cur=h,tr=null;
+    var en=false; /* pages not yet translated are shown in English, left to right */
+    function inEnglish(fn){var c0=C,l0=L;C=E;L='en';try{return fn()}finally{C=c0;L=l0}}
+    if(h.indexOf('treatment-')===0&&treatBy(h.slice(10))){
+      var sl=h.slice(10);
+      if(L==='ar'&&!hasAr('treatments')){en=true;tr=inEnglish(function(){return treatBy(sl)});view=inEnglish(function(){return V.treatment(sl)})}
+      else{tr=treatBy(sl);view=V.treatment(sl)}
+      cur='services-'+tr.area}
+    else if(h.indexOf('services-')===0&&area(h.slice(9)))view=V.servicearea(h.slice(9));
+    else if(V.hasOwnProperty(h)){if(h==='directors'&&L==='ar'&&!hasAr('directors')){en=true;view=inEnglish(function(){return V.directors()})}else view=V[h]()}
+    else{cur='home';view=V.home()}
+    document.getElementById('main').innerHTML='<div class="view"'+(en?' dir="ltr" lang="en"':'')+'>'+view+'</div>';
+    buildNav(cur);
+    seo(tr);
+    document.getElementById('hdr').classList.remove('menu-open');
+    document.getElementById('burger').setAttribute('aria-expanded','false');
+    window.scrollTo(0,0);
+    var f=document.getElementById('enq');
+    if(f){
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        function v(id){return document.getElementById(id).value.trim()}
+        var t=v('f-treat'),sp=v('f-spec');
+        var txt=T('m_hello')+(t?T('m_about')+t:'')+'.\n'+(v('f-name')?T('m_name')+v('f-name')+'\n':'')+(v('f-phone')?T('m_phone')+v('f-phone')+'\n':'')+(sp?T('m_spec')+sp+'\n':'')+(v('f-when')?T('m_time')+v('f-when')+'\n':'')+(v('f-msg')?T('m_notes')+v('f-msg')+'\n':'');
+        document.getElementById('draft-text').textContent=txt.trim();
+        document.getElementById('draft').classList.add('show');
+      });
+      document.getElementById('copy').addEventListener('click',function(){
+        var txt=document.getElementById('draft-text').textContent,b=this;
+        function done(){b.textContent=T('copied')}
+        function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('draft-text'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent=T('presscopy')}
+        try{navigator.clipboard.writeText(txt).then(done,sel)}catch(e){sel()}
+      });
+    }
+  }
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-treat]');
+    if(t){selected=t.getAttribute('data-treat');if(location.hash==='#contact')route();else location.hash='contact';return}
+    var dd=e.target.closest('[data-dd] > button');
+    document.querySelectorAll('li.open').forEach(function(li){if(!dd||li!==dd.parentNode){li.classList.remove('open');li.querySelector('button').setAttribute('aria-expanded','false')}});
+    if(dd){var li=dd.parentNode;var o=li.classList.toggle('open');dd.setAttribute('aria-expanded',o)}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('li.open').forEach(function(li){li.classList.remove('open')})});
+  document.getElementById('burger').addEventListener('click',function(){var h=document.getElementById('hdr');var o=h.classList.toggle('menu-open');this.setAttribute('aria-expanded',o)});
+  document.getElementById('theme').addEventListener('click',function(){
+    var r=document.documentElement,dark=r.getAttribute('data-theme')?r.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    r.setAttribute('data-theme',dark?'light':'dark');
+  });
+  window.addEventListener('hashchange',route);
+
+  function hasAr(k){var a=A&&A[k];return Array.isArray(a)?a.length>0:!!a}
+  function buildLang(){
+    C=(L==='ar'&&A)?merge(E,A):E;
+    toEn={};
+    if(L==='ar'&&A){
+      (A.areas||[]).forEach(function(a,i){var ea=E.areas[i];if(!ea||!a)return;(a.groups||[]).forEach(function(g,j){var eg=ea.groups[j];if(!eg||!g)return;(g.items||[]).forEach(function(it,k){if(it&&eg.items[k])toEn[it]=eg.items[k]})})});
+      (A.featured||[]).forEach(function(f,i){if(f&&f.name&&E.featured[i])toEn[f.name]=E.featured[i].name});
+    }
+  }
+  function applyLang(){
+    var r=document.documentElement;
+    r.lang=L;r.dir=L==='ar'?'rtl':'ltr';
+    var b=document.getElementById('lang');if(b){b.textContent=T('other');b.setAttribute('lang',L==='ar'?'en':'ar');b.setAttribute('aria-label',L==='ar'?'Switch to English':'التبديل إلى العربية')}
+    var hl=document.querySelector('.brand');if(hl)hl.setAttribute('aria-label',C.site.name);
+  }
+  function setLang(l,keepScroll){
+    L=l;try{localStorage.setItem('bloom-lang',l)}catch(e){}
+    buildLang();applyLang();chrome();route();
+  }
+  document.getElementById('lang').addEventListener('click',function(){setLang(L==='ar'?'en':'ar')});
+  function start(en,ar){
+    E=en;A=ar;
+    var want='en';
+    try{var q=/[?&]lang=(ar|en)/.exec(location.search);want=q?q[1]:(localStorage.getItem('bloom-lang')||'en')}catch(e){}
+    if(want==='ar'&&!A)want='en';
+    setLang(want);
+  }
+  function seed(id){try{return JSON.parse(document.getElementById(id).textContent)}catch(e){return null}}
+  /* Content lives in content/site.json and content/site.ar.json (edited from /admin). The embedded copies are a fallback, for example when the page is opened from a local file. */
+  function getJson(u,id){return fetch(u+'?v='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return seed(id)})}
+  try{Promise.all([getJson('content/site.json','seed'),getJson('content/site.ar.json','seed-ar')]).then(function(d){if(d[0])start(d[0],d[1])})}
+  catch(e){var en0=seed('seed');if(en0)start(en0,seed('seed-ar'))}
+})();
+</script>
+</body>
+</html>

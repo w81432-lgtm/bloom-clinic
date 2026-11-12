@@ -1,0 +1,1051 @@
+{
+  "site": {
+    "name": "Bloom Aesthetic and Laser Clinic",
+    "seoTitle": "Bloom Aesthetic and Laser Clinic",
+    "seoDesc": "Bloom Clinic is an aesthetic and laser clinic. Explore treatment information and request a consultation.",
+    "phone": "04 399 3434",
+    "phoneTel": "+97143993434",
+    "email": "marketing@bloom-dubai.ae",
+    "address": "Villa no. 1059, Al Wasl Road, Umm Suqeim, Dubai",
+    "streetAddress": "Villa no. 1059, Al Wasl Road",
+    "locality": "Umm Suqeim, Dubai",
+    "hours": [
+      {
+        "day": "Monday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Tuesday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Wednesday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Thursday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Friday",
+        "open": "13:00",
+        "close": "21:00",
+        "closed": false
+      },
+      {
+        "day": "Saturday",
+        "open": "11:00",
+        "close": "19:00",
+        "closed": false
+      },
+      {
+        "day": "Sunday",
+        "open": "10:00",
+        "close": "21:00",
+        "closed": false
+      }
+    ],
+    "footerText": "Face, body, laser, hair and plastic surgery treatments.",
+    "copyright": "© The Bloom Clinic. Aesthetic and laser clinic."
+  },
+  "home": {
+    "eyebrow": "Aesthetic and laser clinic",
+    "title": "Skin, hair and body care that brings out your best.",
+    "text": "Face and body treatments, laser, hair restoration and plastic surgery in one clinic. Book a consultation and the team will help you choose what fits.",
+    "btn1": "Book an appointment",
+    "btn2": "Explore services",
+    "photo": "images/photo-smile.jpg",
+    "focus": "center",
+    "floatA": "treatments listed",
+    "floatB": "specialists",
+    "servicesEyebrow": "Our services",
+    "servicesTitle": "Care for every area",
+    "servicesSub": "Choose an area to see every treatment we offer.",
+    "aboutEyebrow": "About Bloom",
+    "aboutTitle": "A clinic built around your consultation",
+    "aboutText": "Bloom Aesthetic and Laser Clinic offers treatments across face, body, laser, hair and plastic surgery. Every plan starts with a conversation about what you want.",
+    "aboutChecks": [
+      "Face, body, laser and hair care in one place",
+      "Surgical procedures planned after a consultation",
+      "Specialists for each treatment area"
+    ],
+    "aboutBtn": "More about us",
+    "aboutPhoto": "images/photo-lobby.jpg",
+    "aboutFocus": "center",
+    "features": [
+      {
+        "icon": "care",
+        "title": "Consultation first",
+        "text": "Your specialist discusses options and suitability before any treatment is booked."
+      },
+      {
+        "icon": "areas",
+        "title": "Five areas of care",
+        "text": "Face, body, laser, hair and plastic surgery are all offered here."
+      },
+      {
+        "icon": "team",
+        "title": "Specialists you can ask",
+        "text": "Choose a specialist when you book, or leave it to the team."
+      }
+    ],
+    "apptEyebrow": "Appointment",
+    "apptTitle": "Book your consultation",
+    "apptSub": "Tell us what you are interested in and when suits you.",
+    "teamEyebrow": "Our specialists",
+    "teamTitle": "Meet the team",
+    "teamBtn": "View all specialists",
+    "popularEyebrow": "Popular treatments",
+    "popularTitle": "Where many visits begin",
+    "offersEyebrow": "Promotions",
+    "offersTitle": "Current offers",
+    "offersSub": "Ask the team which offers are running today."
+  },
+  "areas": [
+    {
+      "key": "face",
+      "title": "Face Treatments",
+      "art": "face",
+      "blurb": "Facials, peels, PRP and skin treatments for the face.",
+      "intro": "Facials, skin concerns and non-surgical lifting, from relaxing care to corrective treatments.",
+      "photo": "images/photo-facial.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Face Treatments",
+          "items": [
+            "Relaxing Facial",
+            "Oxygeneo Facial",
+            "Hydra Facial",
+            "Acne Treatment",
+            "Acne Scar Treatment",
+            "PRP Treatment",
+            "Skin Tags Removal",
+            "Face Lifting & Tightening",
+            "Carboxy Therapy Treatment",
+            "Mesotherapy",
+            "Microdermabrasion",
+            "Rosacea Treatment",
+            "Skin Peels",
+            "Collagenizing Treatment"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "body",
+      "title": "Body Treatments",
+      "art": "body",
+      "blurb": "Toning and tightening for the body.",
+      "intro": "Non-surgical shaping for the body.",
+      "photo": "images/photo-body.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Body Treatments",
+          "items": [
+            "Body Toning and Tightening"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "laser",
+      "title": "Laser Treatment",
+      "art": "laser",
+      "blurb": "Laser hair removal, pigmentation, tattoo removal and rejuvenation.",
+      "intro": "Laser care for skin, hair and pigmentation, on the face and body.",
+      "photo": "images/photo-laser.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Laser Treatment",
+          "items": [
+            "Laser Beard Shaping",
+            "Melasma Pigmentation",
+            "Spider Vein Removal",
+            "Hair Bleaching & Hair Removal Laser",
+            "Acne Treatment (Laser)",
+            "Laser Tattoo Removal",
+            "Laser Face & Body Rejuvenation",
+            "Laser Face & Body Hair Removal",
+            "White Hair Removal"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hair",
+      "title": "Hair Treatments",
+      "art": "hair",
+      "blurb": "Hair loss treatments, scalp care and beard restoration.",
+      "intro": "Treatments for hair loss, scalp health, beard and pigmentation.",
+      "photo": "images/photo-hair.jpg",
+      "focus": "upper",
+      "groups": [
+        {
+          "name": "Hair Treatments",
+          "items": [
+            "Carboxy Therapy for Scalp",
+            "Mesotherapy for Hair Loss",
+            "PRP for Hair Loss",
+            "Beard Restoration",
+            "Tricho Pigmentation"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "plastic",
+      "title": "Plastic Surgeries",
+      "art": "plus",
+      "blurb": "Surgical procedures for the face, body and breast.",
+      "intro": "Surgical procedures for the face, body and breast, planned after a consultation.",
+      "photo": "images/photo-office.jpg",
+      "focus": "center",
+      "groups": [
+        {
+          "name": "Face",
+          "items": [
+            "Nose Shaping",
+            "Laser Resurfacing Treatment",
+            "Blepharoplasty",
+            "Face Lift Surgery",
+            "Brow & Forehead Lift",
+            "Facial Implants",
+            "Lip Augmentation",
+            "Earlobe Repair",
+            "Ear Piercing",
+            "Dimple Creation",
+            "Thread Lift",
+            "Stem Cells Treatment"
+          ]
+        },
+        {
+          "name": "Body",
+          "items": [
+            "Vaser Liposuction",
+            "Abdominoplasty",
+            "Liposuction",
+            "Post Massive Weight Loss",
+            "Body Contouring",
+            "Arm Lift",
+            "Body Lift",
+            "Buttock Lift / Thigh Lift"
+          ]
+        },
+        {
+          "name": "Breast",
+          "items": [
+            "Breast Enlargement",
+            "Breast Reduction",
+            "Gynecomastia",
+            "Breast Lifting (Mastopexy)"
+          ]
+        },
+        {
+          "name": "Other procedures",
+          "items": [
+            "Hair Transplant",
+            "Tissue Expansion Surgery",
+            "Jplasma (Renuvion)"
+          ]
+        }
+      ]
+    }
+  ],
+  "tourism": {
+    "cardTitle": "Medical Tourism",
+    "cardCount": "For patients travelling in",
+    "cardText": "Plan your treatment around a visit from abroad.",
+    "pageTitle": "Medical Tourism",
+    "eyebrow": "For patients travelling in",
+    "heading": "Treatment, planned around your trip",
+    "text": "Send the treatment you are interested in, your travel dates and any questions. The team will reply with what the visit involves.",
+    "btn1": "Send an enquiry",
+    "btn2": "See all treatments",
+    "photo": "images/photo-reception.jpg",
+    "focus": "center",
+    "steps": [
+      {
+        "title": "Tell us what you need",
+        "text": "Choose a treatment from any service area and send an enquiry."
+      },
+      {
+        "title": "Share your dates",
+        "text": "Tell us when you can travel so the visit can be scheduled around you."
+      },
+      {
+        "title": "Meet your specialist",
+        "text": "Your specialist confirms the plan and answers your questions in person."
+      }
+    ],
+    "note": ""
+  },
+  "treatments": [
+    {
+      "slug": "hydra-facial",
+      "name": "Hydra Facial",
+      "area": "face",
+      "seoTitle": "Hydra Facial in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Hydra Facial in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Hydra Facial in Dubai",
+      "heroPhoto": "images/photo-hydra.jpg",
+      "heroFocus": "center",
+      "heading": "Hydra Facial at Bloom Clinic Dubai",
+      "paragraphs": [
+        "A Hydra Facial is a multi-step facial that cleanses, exfoliates and hydrates the skin. At **Bloom Clinic Dubai**, your therapist starts with a conversation about your skin and what you would like to discuss, then explains how the treatment would work for you.",
+        "Looking for facials in Dubai? Bloom Clinic is an aesthetic and laser clinic offering a range of [face treatments](#services-face), from relaxing facials and the [Oxygeneo Facial](#treatment-oxygeneo-facial) to skin peels and microdermabrasion. A consultation helps you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens in a session",
+      "steps": [
+        {
+          "title": "Cleanse",
+          "text": "Your therapist cleanses the skin and removes make-up and surface debris."
+        },
+        {
+          "title": "Exfoliate and extract",
+          "text": "A gentle exfoliation and suction step lifts away dead skin cells and loosens congestion from pores."
+        },
+        {
+          "title": "Hydrate",
+          "text": "Serums chosen for your skin are applied to nourish and hydrate."
+        },
+        {
+          "title": "Protect",
+          "text": "The session finishes with moisturiser and sun protection, which matters in Dubai's strong sun."
+        }
+      ],
+      "stepsNote": "Your therapist confirms the exact steps, products and session length at your consultation.",
+      "photoB": "images/photo-facial.jpg",
+      "photoC": "images/photo-flatlay.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like to discuss hydration and skin texture",
+        "Anyone comparing facials in Dubai before choosing a treatment",
+        "People who want a facial with a clear explanation of each step"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your skincare products, medicines and allergies",
+        "Mention any recent sun exposure or skin treatments",
+        "Use sun protection afterwards and follow your therapist's advice"
+      ],
+      "faqTitle": "Hydra Facial questions",
+      "faqs": [
+        {
+          "q": "Is a Hydra Facial suitable for every skin type?",
+          "a": "It is used on a range of skin types. Your therapist checks your skin at a consultation and tells you if another facial would suit you better."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on your skin and what you would like to improve. Your therapist can suggest a plan and explain what to expect from it."
+        },
+        {
+          "q": "Is there downtime after a Hydra Facial?",
+          "a": "Many people return to normal activities afterwards. Some notice mild redness or sensitivity. Your therapist explains what to expect for your skin."
+        },
+        {
+          "q": "Can I combine it with other treatments?",
+          "a": "Often, but the timing matters. Tell the team about any laser, peel or other skin treatments you have had or plan to have, and they will advise on spacing."
+        },
+        {
+          "q": "How do I request a Hydra Facial at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about a Hydra Facial?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Facials at Bloom Clinic Dubai",
+      "related": [
+        "Relaxing Facial",
+        "Oxygeneo Facial",
+        "Hydra Facial",
+        "Microdermabrasion",
+        "Skin Peels",
+        "Collagenizing Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "oxygeneo-facial",
+      "name": "Oxygeneo Facial",
+      "area": "face",
+      "seoTitle": "Oxygeneo Facial in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Oxygeneo Facial in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Oxygeneo Facial in Dubai",
+      "heroPhoto": "images/photo-room.jpg",
+      "heroFocus": "center",
+      "heading": "Oxygeneo Facial at Bloom Clinic Dubai",
+      "paragraphs": [
+        "An Oxygeneo Facial is a multi-step facial that combines exfoliation, oxygen-based treatment and serums in one session. At **Bloom Clinic Dubai**, your therapist starts with a conversation about your skin and what you would like to discuss, then explains how the treatment would work for you.",
+        "Comparing facials in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including the [Hydra Facial](#treatment-hydra-facial), relaxing facials and skin peels. A consultation helps you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens in a session",
+      "steps": [
+        {
+          "title": "Prepare",
+          "text": "Your therapist checks your skin, talks through your concerns and cleanses the face."
+        },
+        {
+          "title": "Exfoliate",
+          "text": "A gentle exfoliation step lifts away dead skin cells from the surface."
+        },
+        {
+          "title": "Treat",
+          "text": "An oxygen-based step and serums chosen for your skin are applied."
+        },
+        {
+          "title": "Protect",
+          "text": "The session finishes with moisturiser and sun protection, which matters in Dubai's strong sun."
+        }
+      ],
+      "stepsNote": "Your therapist confirms the exact steps, products and session length at your consultation.",
+      "photoB": "images/photo-facial.jpg",
+      "photoC": "images/photo-flatlay.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like to discuss skin texture, dullness or hydration",
+        "Anyone comparing facials in Dubai before choosing a treatment",
+        "People who want a facial with a clear explanation of each step"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your skincare products, medicines and allergies",
+        "Mention any recent sun exposure or skin treatments",
+        "Use sun protection afterwards and follow your therapist's advice"
+      ],
+      "faqTitle": "Oxygeneo Facial questions",
+      "faqs": [
+        {
+          "q": "Is an Oxygeneo Facial suitable for every skin type?",
+          "a": "It is used on a range of skin types. Your therapist checks your skin at a consultation and tells you if another facial would suit you better."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on your skin and what you would like to improve. Your therapist can suggest a plan and explain what to expect from it."
+        },
+        {
+          "q": "Is there downtime after an Oxygeneo Facial?",
+          "a": "Many people return to normal activities afterwards. Some notice mild redness or sensitivity. Your therapist explains what to expect for your skin."
+        },
+        {
+          "q": "What is the difference between an Oxygeneo Facial and a Hydra Facial?",
+          "a": "Both are multi-step facials, with different steps and products. Your therapist can explain the differences and which suits your skin at a consultation."
+        },
+        {
+          "q": "How do I request an Oxygeneo Facial at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about an Oxygeneo Facial?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Facials at Bloom Clinic Dubai",
+      "related": [
+        "Relaxing Facial",
+        "Oxygeneo Facial",
+        "Hydra Facial",
+        "Microdermabrasion",
+        "Skin Peels",
+        "Collagenizing Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "skin-tag-removal",
+      "name": "Skin Tags Removal",
+      "area": "face",
+      "seoTitle": "Skin Tag Removal in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Skin tag removal in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Skin Tag Removal in Dubai",
+      "heroPhoto": "images/photo-room.jpg",
+      "heroFocus": "center",
+      "heading": "Skin Tag Removal at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Skin tags are small, soft growths of skin that often appear on the neck, eyelids, underarms or other areas where skin folds. Many people ask about removing them because they catch on clothing or jewellery, or because of how they look. At **Bloom Clinic Dubai**, your specialist examines the area first and explains the options that may suit you.",
+        "Looking for skin tag removal in Dubai? Bloom Clinic offers a range of [face treatments](#services-face) and skin care. A consultation lets you ask questions and decide at your own pace."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks about the growth, how long it has been there and any changes, then examines it."
+        },
+        {
+          "title": "Plan",
+          "text": "Your specialist explains whether removal is suitable and which method they would use."
+        },
+        {
+          "title": "Treatment",
+          "text": "The area is cleaned and the skin tag is removed by your specialist using the agreed method."
+        },
+        {
+          "title": "Aftercare",
+          "text": "You receive clear advice on caring for the area and protecting it from the sun while it heals."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the method, any numbing and the session length at your consultation.",
+      "photoB": "",
+      "photoC": "",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People with small, soft growths that irritate or bother them",
+        "People who want a specialist to check the growth before any treatment",
+        "Anyone who would like the options and aftercare explained first"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, allergies and any bleeding or healing problems",
+        "Do not try to cut or remove a skin tag yourself",
+        "Keep the area clean and protected from the sun, and follow your specialist's advice"
+      ],
+      "faqTitle": "Skin tag removal questions",
+      "faqs": [
+        {
+          "q": "Are skin tags harmful?",
+          "a": "Skin tags are usually harmless, but any growth that changes, bleeds or looks unusual should be examined by a specialist before treatment."
+        },
+        {
+          "q": "Can skin tags come back after removal?",
+          "a": "A removed skin tag does not usually grow back in the same place, but new ones can form elsewhere. Your specialist can tell you what to expect."
+        },
+        {
+          "q": "Is removal painful?",
+          "a": "Comfort depends on the size and site of the skin tag and the method used. Your specialist explains what you may feel and how comfort is managed."
+        },
+        {
+          "q": "How long does healing take?",
+          "a": "This depends on the area and method. Your specialist gives you aftercare advice and tells you what healing to expect."
+        },
+        {
+          "q": "How do I request skin tag removal at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about skin tag removal?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Skin Tags Removal",
+        "Acne Treatment",
+        "Acne Scar Treatment",
+        "Rosacea Treatment",
+        "Skin Peels",
+        "Mesotherapy"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "mesotherapy-face",
+      "name": "Mesotherapy",
+      "area": "face",
+      "seoTitle": "Mesotherapy for Face in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Face mesotherapy in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Mesotherapy for Face in Dubai",
+      "heroPhoto": "images/photo-facial.jpg",
+      "heroFocus": "center",
+      "heading": "Face Mesotherapy at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Mesotherapy for the face is a treatment in which small amounts of a prepared solution are placed in the skin with very fine needles. People ask about it to discuss skin hydration, dullness and texture. At **Bloom Clinic Dubai**, your specialist examines your skin, explains what the treatment involves and tells you whether it may suit you.",
+        "Looking for face mesotherapy in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including [PRP](#services-face), facials and skin peels. A consultation lets you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens in a session",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks about your skin, medicines and allergies, and what you would like to discuss."
+        },
+        {
+          "title": "Prepare",
+          "text": "The skin is cleansed and, if needed, prepared for comfort."
+        },
+        {
+          "title": "Treatment",
+          "text": "Your specialist places the chosen solution in the skin using fine needles across the agreed areas."
+        },
+        {
+          "title": "Aftercare",
+          "text": "You receive clear advice on caring for your skin and protecting it from the sun afterwards."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the solution, technique, number of sessions and session length at your consultation.",
+      "photoB": "images/photo-flatlay.jpg",
+      "photoC": "images/photo-room.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like to discuss dull, dry or tired-looking skin",
+        "People comparing face treatments before choosing one",
+        "Anyone who wants a specialist to explain the options and aftercare first"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, allergies and health conditions, including blood thinners",
+        "Mention any recent sun exposure, skin treatments or cold sores",
+        "Keep the skin clean, protect it from the sun and follow your specialist's advice"
+      ],
+      "faqTitle": "Face mesotherapy questions",
+      "faqs": [
+        {
+          "q": "What is mesotherapy for the face?",
+          "a": "It is a treatment in which a prepared solution is placed in the skin with fine needles. Your specialist explains the solution and the areas treated at your consultation."
+        },
+        {
+          "q": "Is face mesotherapy painful?",
+          "a": "Comfort varies from person to person and area to area. Your specialist explains what you may feel and how comfort is managed."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on your skin and what you would like to discuss. Your specialist can suggest a plan and explain what to expect from it."
+        },
+        {
+          "q": "Is there downtime after mesotherapy?",
+          "a": "Some people notice redness, swelling or small marks for a short time. Your specialist explains what to expect for your skin."
+        },
+        {
+          "q": "How do I request face mesotherapy at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about face mesotherapy?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Mesotherapy",
+        "PRP Treatment",
+        "Skin Peels",
+        "Microdermabrasion",
+        "Collagenizing Treatment",
+        "Carboxy Therapy Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "relaxing-facial",
+      "name": "Relaxing Facial",
+      "area": "face",
+      "seoTitle": "Relaxing Facial in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Relaxing Facial in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Relaxing Facial in Dubai",
+      "heroPhoto": "images/photo-room.jpg",
+      "heroFocus": "center",
+      "heading": "Relaxing Facial at Bloom Clinic Dubai",
+      "paragraphs": [
+        "A relaxing facial is a calming, skin-care focused session that cleanses, nourishes and gives you time to unwind. At **Bloom Clinic Dubai**, your therapist starts with a conversation about your skin and what you would like to discuss, then explains the steps and products they would use.",
+        "Looking for facials in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including the [Hydra Facial](#treatment-hydra-facial) and the [Oxygeneo Facial](#treatment-oxygeneo-facial). A consultation helps you compare options and choose at your own pace."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Skin check",
+          "text": "Your therapist looks at your skin and asks about your routine, allergies and sensitivities."
+        },
+        {
+          "title": "Cleanse",
+          "text": "The face is cleansed and prepared."
+        },
+        {
+          "title": "Nourish and relax",
+          "text": "Products chosen for your skin are applied, often with a gentle massage."
+        },
+        {
+          "title": "Protect",
+          "text": "The session finishes with moisturiser and sun protection, which matters in Dubai's strong sun."
+        }
+      ],
+      "stepsNote": "Your therapist confirms the exact steps, products and session length when you book.",
+      "photoB": "images/photo-facial.jpg",
+      "photoC": "images/photo-flatlay.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People who would like a gentle, calming facial",
+        "Anyone who wants to look after their skin between other treatments",
+        "People who want each step explained before it begins"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your skincare products, medicines and allergies",
+        "Remove make-up before you come if you can, or ask your therapist to",
+        "Use sun protection afterwards and follow your therapist's advice"
+      ],
+      "faqTitle": "Relaxing facial questions",
+      "faqs": [
+        {
+          "q": "Is a relaxing facial suitable for sensitive skin?",
+          "a": "Often, but it depends on your skin. Tell your therapist about any sensitivities, and they will choose products with that in mind."
+        },
+        {
+          "q": "How often can I have a relaxing facial?",
+          "a": "That depends on your skin and goals. Your therapist can suggest a schedule."
+        },
+        {
+          "q": "Is there downtime afterwards?",
+          "a": "Most people return to normal activities. Some notice mild redness. Your therapist explains what to expect for your skin."
+        },
+        {
+          "q": "What is the difference between a relaxing facial and a Hydra Facial?",
+          "a": "Both are facials with different steps and products. Your therapist can explain which suits your skin and what you would like to discuss."
+        },
+        {
+          "q": "How do I request a relaxing facial at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about a relaxing facial?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Facials at Bloom Clinic Dubai",
+      "related": [
+        "Relaxing Facial",
+        "Oxygeneo Facial",
+        "Hydra Facial",
+        "Microdermabrasion",
+        "Skin Peels",
+        "Collagenizing Treatment"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "acne-treatment",
+      "name": "Acne Treatment",
+      "area": "face",
+      "seoTitle": "Acne Treatment in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Acne treatment in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Acne Treatment in Dubai",
+      "heroPhoto": "images/photo-facial.jpg",
+      "heroFocus": "center",
+      "heading": "Acne Treatment at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Acne can affect the face, chest and back, and it can be frustrating to manage. At **Bloom Clinic Dubai**, your specialist looks at your skin, asks about your history and explains the options that may suit you, so you can decide what to do next.",
+        "Looking for acne treatment in Dubai? Bloom Clinic offers a range of [face treatments](#services-face), including [skin peels](#services-face), [acne scar treatment](#treatment-acne-scar-treatment) and laser care. A consultation helps you understand what may help your skin."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks how long you have had acne, what you have tried and your medicines and allergies."
+        },
+        {
+          "title": "Skin assessment",
+          "text": "They examine your skin and explain what they see."
+        },
+        {
+          "title": "Plan",
+          "text": "They suggest options and a realistic plan, and answer your questions."
+        },
+        {
+          "title": "Treatment and follow-up",
+          "text": "Treatment starts when you are ready, with advice on skin care at home and review visits."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the treatments, number of sessions and costs at your consultation.",
+      "photoB": "images/photo-flatlay.jpg",
+      "photoC": "images/photo-room.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People with spots, blocked pores or inflamed skin who want a specialist opinion",
+        "People whose usual products have not worked as they hoped",
+        "Anyone who wants to understand their options before starting treatment"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, skincare products, allergies and pregnancy plans",
+        "Avoid picking or squeezing spots, which can lead to marks and scars",
+        "Use sun protection and follow your specialist's advice"
+      ],
+      "faqTitle": "Acne treatment questions",
+      "faqs": [
+        {
+          "q": "Can acne be cured?",
+          "a": "Acne can often be improved and managed, but it can come back. Your specialist explains what to expect for your skin."
+        },
+        {
+          "q": "How long does acne treatment take?",
+          "a": "This depends on your skin and the plan. Your specialist gives you an idea of timing after assessing your skin."
+        },
+        {
+          "q": "Will I need more than one treatment?",
+          "a": "Often a plan includes more than one step or visit. Your specialist explains what they recommend and why."
+        },
+        {
+          "q": "Can acne scars be treated as well?",
+          "a": "Often, once the acne is under control. See our acne scar treatment page or ask at your consultation."
+        },
+        {
+          "q": "How do I request acne treatment at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about acne treatment?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Acne Treatment",
+        "Acne Scar Treatment",
+        "Acne Treatment (Laser)",
+        "Skin Peels",
+        "Microdermabrasion",
+        "Mesotherapy"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    },
+    {
+      "slug": "acne-scar-treatment",
+      "name": "Acne Scar Treatment",
+      "area": "face",
+      "seoTitle": "Acne Scar Treatment in Dubai | Bloom Clinic Dubai",
+      "seoDesc": "Acne scar treatment in Dubai at Bloom Clinic Dubai. See what to expect, who it may suit and how to request a consultation.",
+      "pageTitle": "Acne Scar Treatment in Dubai",
+      "heroPhoto": "images/photo-hydra.jpg",
+      "heroFocus": "center",
+      "heading": "Acne Scar Treatment at Bloom Clinic Dubai",
+      "paragraphs": [
+        "Acne can leave marks and uneven texture on the skin, and different kinds of scars respond to different approaches. At **Bloom Clinic Dubai**, your specialist examines your skin, explains the type of marks you have and talks through the options that may suit you.",
+        "Looking for acne scar treatment in Dubai? Bloom Clinic offers a range of [face treatments](#services-face) and laser care, alongside [acne treatment](#treatment-acne-treatment). A consultation helps you compare options and decide at your own pace."
+      ],
+      "stepsTitle": "What happens at your visit",
+      "steps": [
+        {
+          "title": "Consultation",
+          "text": "Your specialist asks about your acne history, previous treatments, medicines and what you would like to discuss."
+        },
+        {
+          "title": "Skin assessment",
+          "text": "They examine the scars and marks and explain what they see."
+        },
+        {
+          "title": "Plan",
+          "text": "They suggest options, how many sessions may be needed and what results to expect."
+        },
+        {
+          "title": "Treatment and aftercare",
+          "text": "Treatment is carried out as agreed, with clear advice on caring for your skin afterwards."
+        }
+      ],
+      "stepsNote": "Your specialist confirms the treatments, number of sessions and costs at your consultation.",
+      "photoB": "images/photo-flatlay.jpg",
+      "photoC": "images/photo-facial.jpg",
+      "suitTitle": "Who it may suit",
+      "suit": [
+        "People with marks or uneven texture left after acne",
+        "People whose acne is under control and who want to discuss scar options",
+        "Anyone who wants the options explained before starting"
+      ],
+      "risksTitle": "Risks and limitations",
+      "risks": [],
+      "risksNote": "",
+      "prepTitle": "Preparation and aftercare",
+      "prep": [
+        "Tell the team about your medicines, allergies and any scarring tendencies",
+        "Avoid sun exposure before and after treatment, and use sun protection",
+        "Follow your specialist's advice on skin care and healing"
+      ],
+      "faqTitle": "Acne scar treatment questions",
+      "faqs": [
+        {
+          "q": "Can acne scars be removed completely?",
+          "a": "Scars can often be improved, but complete removal is not always possible. Your specialist explains what to expect for your skin."
+        },
+        {
+          "q": "How many sessions will I need?",
+          "a": "That depends on the type and depth of your scars. Your specialist suggests a plan after examining your skin."
+        },
+        {
+          "q": "When is the right time to treat scars?",
+          "a": "Often once acne is under control. Your specialist advises you on timing."
+        },
+        {
+          "q": "Is there downtime?",
+          "a": "This depends on the treatment. Your specialist explains what to expect before you decide."
+        },
+        {
+          "q": "How do I request acne scar treatment at Bloom Clinic Dubai?",
+          "a": "Use the request form on this page or the Contact page. Our team will contact you about availability."
+        }
+      ],
+      "ctaTitle": "Ready to talk about acne scar treatment?",
+      "ctaText": "Tell us what you would like to discuss and our team will contact you about availability.",
+      "relatedTitle": "Skin treatments at Bloom Clinic Dubai",
+      "related": [
+        "Acne Treatment",
+        "Acne Scar Treatment",
+        "Acne Treatment (Laser)",
+        "Skin Peels",
+        "Microdermabrasion",
+        "Mesotherapy"
+      ],
+      "reviewedBy": "",
+      "reviewedOn": ""
+    }
+  ],
+  "featured": [
+    {
+      "name": "Hydra Facial",
+      "label": "Face",
+      "photo": "images/photo-hydra.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Relaxing Facial",
+      "label": "Face",
+      "photo": "images/photo-facial.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Laser Face & Body Hair Removal",
+      "label": "Laser",
+      "photo": "images/photo-laser.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Body Contouring",
+      "label": "Plastic surgery",
+      "photo": "images/photo-body.jpg",
+      "focus": "center"
+    },
+    {
+      "name": "Hair Transplant",
+      "label": "Plastic surgery",
+      "photo": "images/photo-hair.jpg",
+      "focus": "upper"
+    }
+  ],
+  "offers": [],
+  "offersEmpty": "There are no offers running right now. Contact us to ask about current prices and packages.",
+  "offerBtn": "Ask about this offer",
+  "reviews": {
+    "eyebrow": "Patient reviews",
+    "title": "What our patients say",
+    "rating": "",
+    "count": "",
+    "link": "",
+    "linkText": "Read more reviews on Google",
+    "items": []
+  },
+  "team": [
+    {
+      "name": "Kanta Jethwani",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    },
+    {
+      "name": "Anas",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    },
+    {
+      "name": "Dr. Manoj Kumar",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    },
+    {
+      "name": "Dr. Tariq Maysoun",
+      "role": "",
+      "bio": "",
+      "photo": ""
+    }
+  ],
+  "specialistsPage": {
+    "eyebrow": "The team",
+    "title": "People who plan and carry out your treatment"
+  },
+  "directors": [
+    {
+      "name": "Kanta Jethwani",
+      "role": "Director, Bloom Aesthetic and Laser Clinic",
+      "bio": "",
+      "photo": ""
+    }
+  ],
+  "about": {
+    "eyebrow": "About us",
+    "title": "Aesthetic and laser clinic",
+    "lead": "Bloom offers aesthetic and surgical care across five areas: face treatments, body treatments, laser, hair and plastic surgery.",
+    "text": "Each patient starts with a consultation, so the treatment is chosen to suit the person and the concern.",
+    "photo": "images/photo-lobby.jpg",
+    "focus": "center"
+  },
+  "gallery": {
+    "resultsEyebrow": "Results",
+    "resultsTitle": "Before and after",
+    "resultsSub": "Patient results shown with consent.",
+    "pairs": [
+      {
+        "title": "Face treatments",
+        "before": "",
+        "after": ""
+      },
+      {
+        "title": "Laser treatment",
+        "before": "",
+        "after": ""
+      },
+      {
+        "title": "Hair treatments",
+        "before": "",
+        "after": ""
+      }
+    ],
+    "clinicEyebrow": "The clinic",
+    "clinicTitle": "Inside Bloom",
+    "tiles": [
+      {
+        "photo": "images/photo-flatlay.jpg",
+        "caption": "Skincare products"
+      },
+      {
+        "photo": "images/photo-room.jpg",
+        "caption": "Treatment room"
+      },
+      {
+        "photo": "images/photo-lobby.jpg",
+        "caption": "Clinic lobby"
+      },
+      {
+        "photo": "images/photo-office.jpg",
+        "caption": "Consultation office"
+      },
+      {
+        "photo": "images/photo-reception.jpg",
+        "caption": "Reception"
+      },
+      {
+        "photo": "images/photo-hydra.jpg",
+        "caption": "Hydra facial"
+      }
+    ]
+  }
+}
