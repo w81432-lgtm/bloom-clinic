@@ -5,3 +5,4 @@ uploads/*
 !uploads/.htaccess
 !uploads/index.html
 *.tmp
+admin/data/google.php

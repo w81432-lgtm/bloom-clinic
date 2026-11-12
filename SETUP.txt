@@ -38,12 +38,19 @@ HOW EDITING WORKS
   - Overview shows what still needs finishing (specialist roles and photos,
     director biography, reviews, before and after photos...).
 
-ADDING GOOGLE REVIEWS
+AUTOMATIC GOOGLE REVIEWS
+  Admin > Google reviews has a panel with step-by-step instructions to get a
+  Google API key. Paste it, search for your business, pick it, press
+  "Fetch reviews now". For a daily refresh add a cPanel Cron Job (once a day):
+    /usr/local/bin/php /home/YOURUSER/public_html/admin/cron-reviews.php
+  (use your real folder path). Google returns at most 5 reviews per fetch.
+  Fetched reviews are replaced on every refresh; reviews you add by hand stay.
+
+ADDING REVIEWS BY HAND
   Admin > Google reviews. Add the average rating, review count, the link to
   your Google reviews page, then add each 5-star review (name, date, text) as
   written by the patient. The section appears on the home page once at least
-  one review is added. Reviews are copied by hand: Google does not allow the
-  site to pull them in automatically without a paid connection.
+  one review is added. You can also type reviews in by hand.
 
 SECURITY NOTES
   - Passwords are stored hashed. Six wrong attempts lock that visitor out for

@@ -302,4 +302,44 @@ if ($action === 'password' && $isPost) {
     out(['ok' => true]);
 }
 
+/* ---------- Google reviews ---------- */
+if (in_array($action, ['g_status', 'g_save', 'g_find', 'g_fetch'], true)) {
+    require_once __DIR__ . '/reviews-lib.php';
+    $g = gr_load();
+    $body = $isPost ? (json_decode(file_get_contents('php://input') ?: '', true) ?: []) : [];
+    if ($action === 'g_status') {
+        out(['ok' => true, 'hasKey' => !empty($g['key']), 'placeId' => $g['placeId'] ?? '', 'minStars' => (int)($g['minStars'] ?? 5),
+             'lastFetch' => $g['lastFetch'] ?? 0, 'lastError' => $g['lastError'] ?? '', 'lastCount' => $g['lastCount'] ?? 0, 'curl' => function_exists('curl_init')]);
+    }
+    if (!$isPost) fail('Use POST.', 405);
+    if ($action === 'g_save') {
+        if (!empty($body['key'])) {
+            $k = trim((string)$body['key']);
+            if (!preg_match('/^[A-Za-z0-9_\-]{20,100}$/', $k)) fail('That does not look like a Google API key.');
+            $g['key'] = $k;
+        }
+        if (!empty($body['clearKey'])) unset($g['key']);
+        $pid = trim((string)($body['placeId'] ?? ''));
+        if ($pid !== '' && !preg_match('/^[A-Za-z0-9_\-]{10,200}$/', $pid)) fail('That does not look like a Place ID.');
+        $g['placeId'] = $pid;
+        $g['minStars'] = max(1, min(5, (int)($body['minStars'] ?? 5)));
+        gr_save($g);
+        out(['ok' => true]);
+    }
+    try {
+        if ($action === 'g_find') {
+            $q = trim((string)($body['query'] ?? ''));
+            if ($q === '') fail('Type the business name to search for.');
+            out(['ok' => true, 'places' => gr_find($q, $g)]);
+        }
+        if ($action === 'g_fetch') {
+            $r = gr_refresh($CONTENT, $BACKUPS);
+            clearstatcache();
+            out(['ok' => true, 'added' => $r['added'], 'rating' => $r['rating'], 'count' => $r['count']]);
+        }
+    } catch (Throwable $e) {
+        fail($e->getMessage(), 502);
+    }
+}
+
 fail('Unknown action.', 404);

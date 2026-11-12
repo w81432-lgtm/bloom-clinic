@@ -281,10 +281,10 @@ var SCHEMA={
     {type:'list',k:'offers',l:'Current offers',noun:'Offer',title:function(o){return o.title},addLabel:'Add an offer',make:function(){return {title:'',text:'',tag:'Offer',featured:false}},empty:'No offers yet.',
       fields:[{k:'title',l:'Offer title'},{type:'area',k:'text',l:'Details',rows:3,hint:'What it covers and the dates it runs.'},{k:'tag',l:'Small tag',ph:'Offer, Limited time…'},{type:'bool',k:'featured',l:'Show as the highlighted (dark) offer'}]},
     {k:'offersEmpty',l:'Message shown when there are no offers'},{k:'offerBtn',l:'Offer button text'}],
-  reviews:[{type:'note',text:'Copy reviews exactly as the patient wrote them, from your Google Business profile. Add only reviews you are allowed to show. The “Google review” label appears under each one.'},
+  reviews:[{type:'note',text:'Reviews are fetched automatically from Google (see the panel above) and you can also add reviews by hand. Reviews added by hand are never changed or removed by the refresh. The “Google review” label appears under each one.'},
     {type:'group',l:'Summary line',k:'reviews',fields:[{type:'row',fields:[{k:'rating',l:'Average rating',ph:'4.9'},{k:'count',l:'Number of Google reviews',ph:'250'}]},{k:'link',l:'Link to your Google reviews page',ph:'https://…'},{k:'linkText',l:'Button text'},{type:'row',fields:[{k:'eyebrow',l:'Small label'},{k:'title',l:'Title'}]}]},
-    {type:'list',k:'reviews.items',l:'5-star reviews',noun:'Review',title:function(o){return (o.name||'New review')+(o.date?' — '+o.date:'')},addLabel:'Add a review',make:function(){return {name:'',stars:5,date:'',text:''}},empty:'No reviews yet. The section stays hidden on the website until you add one.',
-      fields:[{type:'row',fields:[{k:'name',l:'Reviewer name'},{k:'date',l:'Date',ph:'e.g. 2 weeks ago, or March 2026'}]},{type:'select',k:'stars',l:'Stars',num:true,options:[[5,'5'],[4,'4'],[3,'3']]},{type:'area',k:'text',l:'Review text',rows:4}]}],
+    {type:'list',k:'reviews.items',l:'5-star reviews',noun:'Review',title:function(o){return (o.name||'New review')+(o.date?' — '+o.date:'')+(o.hidden?' (hidden)':'')+(o.src==='google'?' · from Google':'')},addLabel:'Add a review',make:function(){return {name:'',stars:5,date:'',text:''}},empty:'No reviews yet. The section stays hidden on the website until you add one.',
+      fields:[{type:'row',fields:[{k:'name',l:'Reviewer name'},{k:'date',l:'Date',ph:'e.g. 2 weeks ago, or March 2026'}]},{type:'select',k:'stars',l:'Stars',num:true,options:[[5,'5'],[4,'4'],[3,'3']]},{type:'area',k:'text',l:'Review text',rows:4},{type:'bool',k:'hidden',l:'Hide this review on the website',hint:'Reviews fetched from Google are replaced on every refresh. Hiding one keeps it hidden.'}]}],
   team:[{type:'list',k:'team',l:'Specialists',noun:'Specialist',title:function(o){return o.name},addLabel:'Add a specialist',make:function(){return {name:'',role:'',bio:'',photo:''}},fields:person()},
     {type:'group',l:'Specialists page heading',k:'specialistsPage',fields:[{k:'eyebrow',l:'Small label'},{k:'title',l:'Title'}]}],
   directors:[{type:'list',k:'directors',l:'Directors',noun:'Director',title:function(o){return o.name},addLabel:'Add a director',make:function(){return {name:'',role:'',bio:'',photo:''}},fields:person()}],
@@ -403,6 +403,56 @@ function viewMedia(into){
   draw();
   fi.addEventListener('change',function(){if(!fi.files[0])return;upload(fi.files[0]).then(function(){toast('Image uploaded');fi.value='';draw()}).catch(function(e){toast(e.message,true)})});
 }
+
+function renderGoogle(into){
+  var panel=h('div',{class:'panel'},h('h2',{text:'Automatic Google reviews'}));
+  into.appendChild(panel);
+  var status=h('p',{class:'hint',text:'Loading…'});panel.appendChild(status);
+  api('g_status').then(function(j){
+    if(!j.ok){status.textContent=j.error||'Could not load.';return}
+    var when=j.lastFetch?new Date(j.lastFetch*1000).toLocaleString():'never';
+    status.textContent='Last refresh: '+when+(j.lastFetch?' ('+j.lastCount+' five-star reviews found)':'')+'.'+(j.lastError?' Last problem: '+j.lastError:'');
+    var key=h('input',{id:'gk',type:'password',autocomplete:'off',placeholder:j.hasKey?'A key is saved. Type here only to replace it.':'Paste your Google API key'});
+    var pid=h('input',{id:'gp',value:j.placeId||'',placeholder:'Starts with ChIJ…'});
+    var q=h('input',{id:'gq',value:(D.site&&D.site.name)||'',placeholder:'Business name and area'});
+    var results=h('div',{class:'items'});
+    var ms=h('select',{id:'gm'});[[5,'5 stars only'],[4,'4 stars and above']].forEach(function(o){ms.appendChild(h('option',{value:o[0],text:o[1],selected:+j.minStars===o[0]?true:null}))});
+    var msg=h('div',{class:'msg',role:'status'});msg.hidden=true;
+    function say(t,err){msg.className='msg'+(err?' err':'');msg.textContent=t;msg.hidden=false}
+    function saveCfg(){return api('g_save',{body:{key:key.value.trim(),placeId:pid.value.trim(),minStars:+ms.value}}).then(function(r){if(!r.ok)throw new Error(r.error||'Could not save');key.value='';return r})}
+    panel.appendChild(msg);
+    panel.appendChild(h('div',{class:'field'},h('label',{for:'gk',text:'Google API key'}),key,h('div',{class:'hint',text:'Kept on your server only. It is never shown on the website or sent to visitors.'})));
+    panel.appendChild(h('div',{class:'field'},h('label',{for:'gq',text:'Find your business'}),h('div',{class:'srow'},q,h('button',{class:'btn sm',type:'button',text:'Search',onclick:function(){
+      clear(results);say('Searching…');
+      saveCfg().then(function(){return api('g_find',{body:{query:q.value}})}).then(function(r){
+        if(!r.ok)throw new Error(r.error||'Search failed');msg.hidden=true;
+        if(!r.places.length)results.appendChild(h('p',{class:'hint',text:'No matches. Try the name with the area, e.g. “Bloom Aesthetic and Laser Clinic Umm Suqeim”.'}));
+        r.places.forEach(function(p){results.appendChild(h('button',{class:'btn',type:'button',text:p.name+' — '+p.address,onclick:function(){pid.value=p.id;clear(results);say('Selected. Press Save settings.')}}))});
+      }).catch(function(e){say(e.message,true)});
+    }})),results));
+    panel.appendChild(h('div',{class:'field'},h('label',{for:'gp',text:'Place ID'}),pid,h('div',{class:'hint',text:'Filled in for you when you pick your business above.'})));
+    panel.appendChild(h('div',{class:'field'},h('label',{for:'gm',text:'Which reviews to show'}),ms));
+    panel.appendChild(h('div',{class:'row'},
+      h('button',{class:'btn',type:'button',text:'Save settings',onclick:function(){saveCfg().then(function(){say('Settings saved.');return api('g_status')}).then(function(){}).catch(function(e){say(e.message,true)})}}),
+      h('button',{class:'btn primary',type:'button',text:'Fetch reviews now',onclick:function(){
+        if(isDirty()){say('Save your other changes first (Save changes at the top), then fetch.',true);return}
+        say('Fetching from Google…');
+        saveCfg().then(function(){return api('g_fetch',{body:{}})}).then(function(r){
+          if(!r.ok)throw new Error(r.error||'Fetch failed');
+          toast('Fetched '+r.added+' reviews. Rating '+r.rating+' from '+r.count+' reviews.');loadContent();
+        }).catch(function(e){say(e.message,true)});
+      }})));
+    panel.appendChild(h('details',{class:'item'},h('summary',null,h('span',{class:'t',text:'How to get a Google API key (about 10 minutes)'})),h('div',{class:'body'},
+      h('ol',{class:'hint',style:'margin:0;padding-left:20px;display:grid;gap:6px'},
+        h('li',{text:'Go to console.cloud.google.com and sign in with the Google account for your business.'}),
+        h('li',{text:'Create a project (any name) and add a billing account. Google gives a monthly free credit, and one refresh a day costs very little or nothing.'}),
+        h('li',{text:'Open “APIs & Services” → “Library”, search for “Places API (New)” and click Enable.'}),
+        h('li',{text:'Open “APIs & Services” → “Credentials” → “Create credentials” → “API key”.'}),
+        h('li',{text:'Edit the key: under “API restrictions” choose “Places API (New)”. If your host has a fixed IP address, add it under “Application restrictions”.'}),
+        h('li',{text:'Paste the key above, search for your business, pick it, press Save settings and then Fetch reviews now.'})),
+      h('p',{class:'hint',text:'Daily refresh: in cPanel → Cron Jobs, add once a day: /usr/local/bin/php /home/YOURUSER/public_html/admin/cron-reviews.php (use your real folder). Google returns at most 5 reviews per fetch.'}))));
+  });
+}
 function viewBackups(into){
   into.appendChild(h('h1',{text:'Backups'}));
   into.appendChild(h('p',{class:'lede',text:'A copy of the website content is kept every time you save (the latest 40). Restoring replaces what is on the website now, and also keeps a copy of it.'}));
@@ -462,6 +512,7 @@ function shell(){
   else if(SCHEMA[cur]){
     content.appendChild(h('h1',{text:TITLES[cur]}));
     content.appendChild(h('p',{class:'lede',text:LEDES[cur]||''}));
+    if(cur==='reviews')renderGoogle(content);
     var panel=h('div',{class:'panel'});content.appendChild(panel);
     renderSection(cur,panel);
     var btm=h('div',{class:'row'},h('button',{class:'btn primary',type:'button',text:'Save changes',onclick:doSave}));
