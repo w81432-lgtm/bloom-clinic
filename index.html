@@ -1281,7 +1281,8 @@ html[dir=rtl] #f-phone{text-align:right}
     "count": "",
     "link": "",
     "linkText": "Read more reviews on Google",
-    "items": []
+    "items": [],
+    "widgetCode": ""
   },
   "team": [
     {
@@ -1841,9 +1842,13 @@ html[dir=rtl] #f-phone{text-align:right}
     if(!o.length)return '<p class="lead" style="margin-inline:auto;text-align:center">'+esc(C.offersEmpty)+'</p><div class="row" style="justify-content:center;margin-top:22px"><a class="btn primary" href="#contact">'+esc(T('contact'))+'</a></div>';
     return '<div class="offers">'+o.map(function(x,i){var f=x.featured||(i===0&&!o.some(function(y){return y.featured}));return '<div class="offer'+(f?' featured':'')+'"><span class="pill">'+esc(x.tag||(f?T('featured'):T('offer')))+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.text)+'</p><a class="btn '+(f?'light':'ghost')+'" href="#contact" style="justify-self:start">'+esc(C.offerBtn||'Ask about this offer')+'</a></div>'}).join('')+'</div>';
   }
+  /* Only a script from Trustindex's own address is accepted */
+  function widgetSrc(code){var m=/src\s*=\s*["'](https:\/\/cdn\.trustindex\.io\/[^"'\s<>]+)["']/i.exec(String(code||''));return m?m[1]:''}
   function stars(n){var s='';for(var i=0;i<5;i++)s+='<svg viewBox="0 0 20 20" aria-hidden="true" class="'+(i<n?'on':'off')+'"><path d="M10 1.6l2.5 5.4 5.9.7-4.4 4 1.2 5.8L10 14.6 4.8 17.5 6 11.7 1.6 7.7l5.9-.7z"/></svg>';return '<span class="stars" role="img" aria-label="'+n+' out of 5 stars">'+s+'</span>'}
   function reviews(){
     var R=C.reviews||{},it=(R.items||[]).filter(function(r){return r.text&&r.name&&!r.hidden}).slice(0,6);
+    var wsrc=widgetSrc(R.widgetCode);
+    if(wsrc)return '<section style="padding-top:0"><div class="wrap">'+head(R.eyebrow||'Patient reviews',R.title||'What our patients say')+'<div id="ti-widget" data-src="'+esc(wsrc)+'" style="min-height:120px"></div></div></section>';
     if(!it.length)return '';
     return '<section style="padding-top:0"><div class="wrap">'+head(R.eyebrow||'Patient reviews',R.title||'What our patients say')+
       ((R.rating||R.count)?'<p class="revsum">'+stars(5)+'<span><b>'+esc(R.rating)+'</b>'+(R.count?T('from')+esc(R.count)+T('greviews'):'')+'</span></p>':'')+
@@ -1991,6 +1996,8 @@ html[dir=rtl] #f-phone{text-align:right}
     document.getElementById('hdr').classList.remove('menu-open');
     document.getElementById('burger').setAttribute('aria-expanded','false');
     window.scrollTo(0,0);
+    var tw=document.getElementById('ti-widget');
+    if(tw&&tw.getAttribute('data-src')){var sc=document.createElement('script');sc.src=tw.getAttribute('data-src');sc.async=true;sc.defer=true;tw.appendChild(sc)}
     var f=document.getElementById('enq');
     if(f){
       f.addEventListener('submit',function(e){
